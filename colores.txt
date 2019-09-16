@@ -1,5 +1,5 @@
-#FFFFFF
-#42E0EB
-#4FA4FF
-#4A545E
-#FA6720
+#FFFFFF --> Blanco
+#42E0EB --> Turquesa
+#4FA4FF --> Celeste
+#4A545E --> Gris
+#FA6720 --> Naranja
