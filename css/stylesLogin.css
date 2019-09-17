@@ -6,11 +6,22 @@
 	color: black;
 	}
 
-h2{
+.Encabezado{
+	width: 100%;
+}
+
+ .Encabezado h2{
+		width: 100%;
 		text-align: center;
 		font-weight: bold;
 		color: black;
 	}
+
+	h2{
+			text-align: center;
+			font-weight: bold;
+			color: black;
+		}
 
 	section input{
 		text-decoration: none;
@@ -31,9 +42,20 @@ main{
 	margin-top: 10PX;
 
 }
-main img{
+main .B2FAQ img {
 	width: 70%;
-	height: 7%;
+	height: 6%;
+	_padding: 30px;
+	padding-left: 20px;
+	padding right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 18px;
+	background-color: #D5D5D5;
+}
+main .B2LOG img{
+	width: 70%;
+	height: 20%;
 	_padding: 30px;
 	padding-left: 20px;
 	padding right: 5px;
@@ -73,7 +95,15 @@ width: 600px;
 background-color:#D5D5D5;
 color:black;
 }
-.B2{
+.B2FAQ{
+	display:flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	flex-direction:column;
+  background-color:#D5D5D5;
+		width: 500px;
+}
+.B2LOG{
 	display:flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
@@ -100,6 +130,8 @@ body {
 	background-image: url(../img/bg-2.png);
 	font-family: sans-serif, Verdana, Tahoma;
 	color:black;
+	background-color:#D5D5D5;
+	margin-top: 20px;
 }
 
 /* Container */
@@ -107,6 +139,16 @@ body {
 	width: 1140px;
 	margin: 0 auto;
 	color:black;
+}
+
+.container-fluid {
+	width: 1140px;
+	margin: 0 auto;
+	color:black;
+align-content: center;
+margin-left: 300px;
+margin-top: 50px;
+
 }
 
 /* Header */
@@ -184,7 +226,7 @@ header {
   background-color: #3c8dbc;
   border: 1px solid #3c8dbc;
 	text-decoration: none;
-	border-radius: 50px;
+	border-radius: 500px;
 	border:none;
   color: #fff;
   text-transform: capitalize;
