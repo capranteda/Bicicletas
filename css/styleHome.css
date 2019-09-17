@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 #carouselPpal h1{
   font-weight: bold;
   text-shadow:  2px 2px rgba(0,0,0,0.7);
@@ -16,6 +19,10 @@
     padding-left: 5px;
 }
 
+#efectivo{
+  background: #4FA4FF;
+}
+
 .productosDestacados{
   text-align: center;
   height: 100px;
@@ -23,11 +30,11 @@
 
 .productosDestacados h2{
   font-family: Montserrat, sans-serif;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 15px;
+  margin-bottom: 20px;
   text-align: center;
   color: #4A545E;
-  font-size: 40;
+  font-size: 20px;
 }
 
 .listaProductos h6{
@@ -65,53 +72,56 @@
   font-size: 15px;
 }
 
-.productosDestacados{
-  height: auto;
+.mediosDePago{
+  margin-top: 80px;
 }
 
+.mediosDePago ul li {
+  color: #42E0EB;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
 .listabox div img{
-  height: 90%;
+  /*height: 90%;*/
   width: 100%;
 }
 
-.cajaProducto{position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+.cajaProducto{display: flex;
+  flex-direction: column-reverse;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: auto;
 
-.nombrePproducto {position: absolute;
+}
+.cajaProducto img{
+  width: 100%;
+  }
+
+.nombreProducto {/*position: absolute;
   margin-top: 45%;
-  margin-left: 25%;
+  margin-left: 25%;*/
   color: #4A545E;
   font-size: 14px;
-  border-radius: 10px;
-  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: bold;
   padding: 5px;
-  font-kerning: auto;
   font-family: arial;
   }
 
-.nombrePproducto:hover{
+.nombreProducto:hover{
   text-decoration: none;
   color: #4FA4FF;
 }
 
-.precioProducto{position: absolute;
-  background: #FA6720;
-  margin-left: 70%;
-  border-radius: 30px;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
+.verProducto{/*position: absolute;
+    margin-left: 70%;*/
+  text-transform: uppercase;
+  align-self: center;
+  display: inherit;
+  background: #4fa4ffa6;
+  padding: 5px 20px;
+  font-size: 12px;
   color: white;
-  font-family: arial;}
-
-  .mediosDePago{
-    margin-top: 80px;
-  }
-
-  .mediosDePago ul li {
-    color: #42E0EB;
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
+  font-family: arial;}*/
