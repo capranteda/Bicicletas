@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styleHome.css">
+    <link rel="stylesheet" href="/css/header-footer.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -10,12 +11,42 @@
   </head>
     <body>
     <div class="container.fluid">
-<header>
-    <!--Acá dejo lugar para el header-->
-  </header>
+
+    <!--Acá el header-->
+    <header>
+      <div class="container.fluid">
+       <nav class="navbar navbar-inverse">
+
+          <a href="#" class="navbar-brand">Electrobici
+          <img src="" alt="">
+          </a>
+
+        <!-- <ul class="nav navbar-nav navbar right">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Preguntas</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Product</a></li>
+        </ul> -->
+        <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Preguntas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Registro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Loguin</a>
+      </li>
+    </ul>
+       </nav>
+      </div>
+      </header>
   <main>
 
-    <!--Acá empieza el lugar para el slide-->
+    <!--Acá empieza el slide-->
     <div class="slidePpal row">
     <div class="slide col-12">
       <div id="carouselPpal" class="carousel slide" data-ride="carousel">
@@ -42,9 +73,7 @@
       </div>
     </div>
     </div>
-
-    <!--Acá termina el lugar para el slide-->
-    <!-- Aca empieza la seccion principal-->
+    <!-- Aca la seccion principal-->
     <div class="seccionPpal row">
       <!--lista de productos-->
       <div class="listaProductos col-md-2 d-none d-md-block">
@@ -68,7 +97,7 @@
         </div>
       </div>
 
-  <!--ACA LA SECCION DE PRODUCTOS DESTACADOS -->
+  <!--SECCION DE PRODUCTOS DESTACADOS -->
     <div class="productosDestacados col-md-10 col-sm-12">
   <div class="row" id="tituloProductos">
     <div class="col-12"><h2>PRODUCTOS DESTACADOS</h2></div>
@@ -112,8 +141,51 @@
     <!--Fin de la seccion principal -->
   </main>
   <footer>
-  <!--Acá dejo lugar para el footer-->
-  </footer>
+      <div class="container-footer-all">
+        <div class="container-body">
+          <div class="colum1">
+            <h1>Bicielectric</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="colum2">
+            <h1>redes sociales</h1>
+            <div class="row">
+              <img src="" alt="">
+              <label for="">seguinos en Facebook</label>
+            </div>
+            <div class="row">
+              <img src="" alt="">
+              <label for="">seguinos en Instagram</label>
+            </div>
+            <div class="row">
+              <img src="" alt="">
+              <label for="">seguinos en Twitter</label>
+            </div>
+          </div>
+          <div class="colum3">
+            <h1>Informaciòn de contacto</h1>
+            <div class="row">
+              <img src="" alt="">
+              <label for="">Av. Lima 3476, Capital Federal</label>
+            </div>
+            <div class="row">
+              <img src="" alt="">
+              <label for="">+54 9 1143456789</label>
+            </div>
+            <div class="row">
+              <img src="" alt="">
+              <label for="">electrobici@electro.com.ar</label>
+            </div>
+
+          </div>
+        </div>
+        <div class="container-footer">
+          <div class="copyright">
+          </div>
+        </div>
+      </div>
+
+    </footer>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

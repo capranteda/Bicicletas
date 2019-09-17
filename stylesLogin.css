@@ -1,0 +1,222 @@
+/* Estilos Craftsy
+======================= */
+
+/* Globales */
+*{
+	color: black;
+	}
+
+h2{
+		text-align: center;
+		font-weight: bold;
+		color: black;
+	}
+
+	section input{
+		text-decoration: none;
+		background-color: ;
+		border: none;
+		background: #f1f1f1;
+	}
+
+
+main{
+
+	background-color: #D5D5D5;
+	color: black;
+	display:flex;
+	flex-direction:column:;
+	flex-wrap: wrap;
+	height: 100%;
+	margin-top: 10PX;
+
+}
+main img{
+	width: 70%;
+	height: 7%;
+	_padding: 30px;
+	padding-left: 20px;
+	padding right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 18px;
+	background-color: #D5D5D5;
+}
+div .linea{
+	background-color: white;
+	height: 10px;
+	width: 100%;
+}
+
+
+.form1 h1{
+	margin-top: 70px;
+align-content: center;
+text-align: center;
+displa-direction:column;
+
+}
+.form1{
+	text-align: left;
+}
+.form1 img{
+	width: 80px;
+	height:90px;
+	padding-left: 3px;
+	padding right: 3px;
+	padding-top: 50PX;
+	padding-bottom: 5px;
+
+}
+.B2Preguntas p,h2,texto_plegado,div{
+width: 600px;
+background-color:#D5D5D5;
+color:black;
+}
+.B2{
+	display:flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	flex-direction:column;
+  background-color:#D5D5D5;
+		width: 500px;
+}
+
+.submit{
+	margin-bottom: 40px;
+	border-radius: 10px;
+}
+
+ul, ol {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+body {
+	background-image: url(../img/bg-2.png);
+	font-family: sans-serif, Verdana, Tahoma;
+	color:black;
+}
+
+/* Container */
+.container {
+	width: 1140px;
+	margin: 0 auto;
+	color:black;
+}
+
+/* Header */
+header {
+	width: 1140px;
+	margin-bottom: 20px;
+	z-index: 999;
+}
+.logo {
+	float:left;
+	margin-right: 30px;
+}
+.main-nav {
+	background-color: #D5D5D5;
+	padding: 12px 15px;
+	overflow: hidden;
+}
+.main-nav li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: black;
+	font-weight: bold;
+	font-family: sans-serif, Verdana, Tahoma;
+}
+.menu {
+	float: left;
+	overflow: hidden;
+}
+.main-nav li {
+	float: left;
+	margin-right: 30px;
+	line-height: 30px; /* Debe coincidir con la altura del logo */
+}
+.main-nav li a:hover{
+	text-decoration: underline;
+}
+.access{
+	float: right;
+}
+.access li {
+	margin-right: 0;
+	margin-left: 15px;
+}
+
+.field-group {
+	margin-bottom: 20px;
+}
+.access-form {
+	overflow: hidden;
+}
+.access-form label {
+	font-size: 16px;
+	margin-bottom: 5px;
+	display: inline-block
+}
+.field-group input {
+	width: 100%;
+  border: 1px solid #ccc;
+	border-radius: 10px;
+  padding: 8px 38px 8px 8px;
+}
+.remember-me {
+	text-align: right;
+}
+.remember-me input {
+	width: auto;
+}
+.alert-hide {
+	color: rgb(239, 76, 39);
+	font-size: 14px;
+	margin-top: 5px;
+}
+.access-form button {
+	font-size: 16px;
+  background-color: #3c8dbc;
+  border: 1px solid #3c8dbc;
+	text-decoration: none;
+	border-radius: 50px;
+	border:none;
+  color: #fff;
+  text-transform: capitalize;
+  width: 40%;
+  padding: 8px 14px;
+  border-radius: 10px;
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+
+.loginhtml #logo{
+	width: 20px;
+	height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
