@@ -10,35 +10,84 @@
 </head>
 <body>
    <div class="container-fluid">
-        <div class="row contacto borde">
-            <h3 class="col-12 text-center">REGISTRESE CON NOSOTROS</h3>
-            <form class="col-8 offset-2" action="#" method="POST">
-                <div class="row">
-                    <img class=" bajar rounded img-fluid" src="images/fondo.jpg" alt="">
+     <!--PRINCIPIO HEADER-->
+       <header>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <a class="navbar-brand" style="color:white; font-size:40px; text-shadow:3px 3px #4fa4ff87;" href="Inicio.html"><i>EcoBici</i></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav">
+             <li class="nav-item active">
+               <a class="nav-link" href="Inicio.html">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="registro.html">Registrarse</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="login.html">Login</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="FAQs.html">FAQs</a>
+             </li>
+           </ul>
+         </div>
+       </nav>
+       </header>
+   <!--FIN DE HEADER-->
+       <div class="row contacto borde">
+          <h3 class="col-12 text-center">REGISTRESE CON NOSOTROS</h3>
+          <form class="col-8 offset-2" action="#" method="POST">
+              <div class="row">
+                  <img class=" bajar rounded img-fluid" src="images/fondo.jpg" alt="">
 
-                    <label class="col-12 col-md-2" for="nombre"><b>Nombre</b></label>
-                    <input class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" required>
+                  <label class="col-12 col-md-2 p-0" for="nombre"><b>Nombre</b></label>
+                  <input class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" required>
 
-                    <label class="col-12 col-md-2" for="apellido"><b>Apellido</b></label>
-                    <input class="col-12 col-md-4" type="text" placeholder="Ingresar apellido" name="apellido" required>
+                  <label class="col-12 col-md-2" for="apellido"><b>Apellido</b></label>
+                  <input class="col-12 col-md-4" type="text" placeholder="Ingresar apellido" name="apellido" required>
 
-                    <label class="col-12" for="email"><b>Email</b></label>
-                    <input class="col-12" type="text" placeholder="Ingresar Email" name="email" required>
-
-                    <label class="col-12"for="pass"><b>Contraseña</b></label>
+                  <label class="col-12 p-0" for="email"><b>Email</b></label>
+                  <input class="col-12" type="text" placeholder="Ingresar Email" name="email" required>
+                  <div class="col-12 col-md-6 pl-0 pr-1">
+                    <label class="col-12 p-0"for="pass"><b>Contraseña</b></label>
                     <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="psw" required>
-
-                    <label class="col-12"for="pass-repeat"><b>Confirme contraseña</b></label>
+                  </div>
+                  <div class="col-12 col-md-6 p-0">
+                    <label class="col-12 p-0"for="pass-repeat"><b>Confirme contraseña</b></label>
                     <input class="col-12"type="password" placeholder="Repetir contraseña" name="pass-repeat" required>
-                    <hr>
+                  </div>
 
-                    <p class="text-left">Al registrarse ud acepta nuestros <a href="#">terminos y condiciones</a>.</p>
-                    <button  style="background: #4fa4ffa6;"type="submit" class="registerbtn">REGISTRESE</button>
-                </div>
-            </form>
+
+                  <p class="text-left">Al registrarse ud acepta nuestros <a href="#">terminos y condiciones</a>.</p>
+                  <button  style="background: #4fa4ffa6;"type="submit" class="registerbtn mb-4">REGISTRESE</button>
+              </div>
+          </form>
    </div>
-
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <!-- Comienzo footer-->
+   <footer class="row">
+       <div class="colFooter col-lg-4 col-md-12">
+         <p>Dirección: Avenida Córdoba 2222
+         <b>CABA</b> <br>
+         <p>Tel: 15151-515515</p>
+         <a href="mailto:consultas@ecobici.com.ar">consultas@ecobici.com.ar</a>
+       </p>
+       </div>
+       <div class="colFooter col-lg-4 col-md-12">
+         <p>Seguinos en nuestras redes</p>
+         <a href="#"><img class="redes" src="images/icono-face.png" alt="facebook" width="35px;" height="35px;"></a>
+         <a href="#"><img class="redes" src="images/icono-insta.png" alt="instagram" width="35px;" height="35px;"></a>
+         <a href="#"><img class="redes" src="images/icono-wa.png" alt="whatsapp" width="35px;" height="35px;"></a>
+       </div>
+       <div class="colFooter col-lg-4 col-md-12 d-none d-md-block">
+         <p class="textoDestacado">
+           <i>Somos representantes exclusivos de las mejores marcas internacionales y ofrecemos garantía oficial.</i>
+         </p>
+       </div>
+   </footer>
+   <!--Fin del footer-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

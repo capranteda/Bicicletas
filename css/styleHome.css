@@ -156,8 +156,8 @@ footer .colFooter{background: #4A545E;
     font-size: 13px;
     font-family: Montserrat;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;}
+    padding-top: 10px;
+    padding-bottom: 10px;}
 
 .colFooter img{
     margin-left: 10px;
@@ -179,7 +179,7 @@ footer .colFooter{background: #4A545E;
 header {
   background:
   #4A545E;
-  padding: 30px;
+  height: 80px;
 }
 header .bg-light {
       background-color: #4a545e!important;
