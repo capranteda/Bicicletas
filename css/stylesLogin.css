@@ -5,22 +5,39 @@
 *{
 	color: black;
 	}
+	.container-fluid{
+			width: 1140px;
+	}
+.row contacto borde{
+	width: 1140px;
+	display: flex;
 
+}
+.navbar-navbar-inverse{
+width: 1140px;
+align-items: flex-start;
+}
 .Encabezado{
 	width: 100%;
 }
 
- .Encabezado h2{
+ .Encabezado h3{
+	 font-family: Montserrat, sans-serif;
 		width: 100%;
 		text-align: center;
-		font-weight: bold;
+		color: blue;
+		font-size: 40;
+		_font-weight: bold;
 		color: black;
 	}
 
-	h2{
+	h3{
+		  font-family: Montserrat, sans-serif;
 			text-align: center;
-			font-weight: bold;
-			color: black;
+			_font-weight: bold;
+			color: blue;#4A545E;
+			font-size: 40;
+			color: blue;
 		}
 
 	section input{
@@ -33,7 +50,7 @@
 
 main{
 
-	background-color: #D5D5D5;
+	background-color: white; 	/*white;*/
 	color: black;
 	display:flex;
 	flex-direction:column:;
@@ -51,7 +68,7 @@ main .B2FAQ img {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-top: 18px;
-	background-color: #D5D5D5;
+	background-color: white;
 }
 main .B2LOG img{
 	width: 70%;
@@ -62,7 +79,7 @@ main .B2LOG img{
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-top: 18px;
-	background-color: #D5D5D5;
+	background-color: white;
 }
 div .linea{
 	background-color: white;
@@ -83,7 +100,7 @@ displa-direction:column;
 }
 .form1 img{
 	width: 80px;
-	height:90px;
+	height:10px;
 	padding-left: 3px;
 	padding right: 3px;
 	padding-top: 50PX;
@@ -92,7 +109,7 @@ displa-direction:column;
 }
 .B2Preguntas p,h2,texto_plegado,div{
 width: 600px;
-background-color:#D5D5D5;
+background-color:white;
 color:black;
 }
 .B2FAQ{
@@ -100,7 +117,7 @@ color:black;
 	flex-wrap: wrap;
 	align-content: flex-start;
 	flex-direction:column;
-  background-color:#D5D5D5;
+  background-color:white;
 		width: 500px;
 }
 .B2LOG{
@@ -108,7 +125,7 @@ color:black;
 	flex-wrap: wrap;
 	align-content: flex-start;
 	flex-direction:column;
-  background-color:#D5D5D5;
+  background-color:white;
 		width: 500px;
 }
 
@@ -116,6 +133,13 @@ color:black;
 	margin-bottom: 40px;
 	border-radius: 10px;
 }
+
+.image-imagen_fondo{
+	width: 50%;
+
+
+}
+
 
 ul, ol {
 	padding: 0;
@@ -130,7 +154,7 @@ body {
 	background-image: url(../img/bg-2.png);
 	font-family: sans-serif, Verdana, Tahoma;
 	color:black;
-	background-color:#D5D5D5;
+	background-color:white;
 	margin-top: 20px;
 }
 
@@ -139,6 +163,8 @@ body {
 	width: 1140px;
 	margin: 0 auto;
 	color:black;
+	align-items: center;
+	align-content: center;
 }
 
 .container-fluid {
@@ -146,10 +172,17 @@ body {
 	margin: 0 auto;
 	color:black;
 align-content: center;
+align-items: center;
 margin-left: 300px;
-margin-top: 50px;
-
+margin-top: 5px;
 }
+.barrafooter{
+	background-color: #4fa4ffa6;
+	color: black;
+	width: 100%;
+	height: 40px;
+}
+
 
 /* Header */
 header {
@@ -162,14 +195,14 @@ header {
 	margin-right: 30px;
 }
 .main-nav {
-	background-color: #D5D5D5;
+	background-color: white;
 	padding: 12px 15px;
 	overflow: hidden;
 }
 .main-nav li a {
 	text-decoration: none;
 	text-transform: uppercase;
-	color: black;
+	color: blue;
 	font-weight: bold;
 	font-family: sans-serif, Verdana, Tahoma;
 }
@@ -237,11 +270,24 @@ header {
 	cursor: pointer;
 }
 
+
 .loginhtml #logo{
 	width: 20px;
 	height: 20px;
+
 }
 
+.barrafooter{
+	background-color:#4fa4ffa6;
+}
+.row button{
+background-color:#4fa4ffa6;
+border-style: none;
+color: white;
+height: auto;
+width: 100%;
+
+}
 
 
 
