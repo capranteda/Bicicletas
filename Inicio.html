@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styleHome.css">
-    <link rel="stylesheet" href="/css/header-footer.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -12,38 +11,34 @@
     <body>
     <div class="container.fluid">
 
-    <!--Acá el header-->
+    <!--PRINCIPIO HEADER-->
     <header>
-      <div class="container.fluid">
-       <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" style="color:white; font-size:40px; text-shadow:3px 3px #4fa4ff87;" href="Inicio.html"><i>EcoBici</i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="Inicio.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="registro.html">Registrarse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="FAQs.html">FAQs</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    </header>
+<!--FIN DE HEADER-->
 
-          <a href="#" class="navbar-brand">ElectroBici
-          <img src="" alt="">
-          </a>
 
-        <!-- <ul class="nav navbar-nav navbar right">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Preguntas</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Product</a></li>
-        </ul> -->
-        <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Preguntas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Registro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-    </ul>
-       </nav>
-      </div>
-      </header>
   <main>
 
     <!--Acá empieza el slide-->
@@ -104,22 +99,22 @@
   </div>
   <div class="listabox row">
 
-    <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
-      <p class="verProducto">Ver Más</p>
+    <div class="cajaProducto col-lg-4 col-md-12">
+      <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici1.jpg" alt="bicicleta electrica mountan bike">
-      <a class="nombreProducto" href="#">Modelo: mountan bike</a>
+      <h6 class="nombreProducto">Modelo: mountan bike</h6>
     </div>
 
-    <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
-      <p class="verProducto">Ver Más</p>
+    <div class="cajaProducto col-lg-4 col-md-12">
+      <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici6.jpg" alt="bicicleta electrica dama">
-      <a class="nombreProducto" href="#">Modelo: dama blanca</a>
+      <h6 class="nombreProducto">Modelo: dama blanca</h6>
     </div>
 
-    <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
-      <p class="verProducto">Ver Más</p>
+    <div class="cajaProducto col-lg-4 col-md-12">
+      <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici9.jpg" alt="bicicleta electrica urbana">
-      <a class="nombreProducto" href="#">Modelo: urbana</a>
+      <h6 class="nombreProducto">Modelo: urbana</h6>
     </div>
 
   </div>
@@ -127,76 +122,78 @@
   <div class="listabox row">
 
     <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
-      <p class="verProducto">Ver Más</p>
+      <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici5.jpg" alt="bicicleta electrica mountan bike">
-      <a class="nombreProducto" href="#">Modelo: mountan negra</a>
+      <h6 class="nombreProducto">Modelo: mountan negra</h6>
     </div>
 
     <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
-      <p class="verProducto">Ver Más</p>
+      <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici8.jpg" alt="bicicleta electrica urbana">
-      <a class="nombreProducto" href="#">Modelo: paseo black</a>
+      <h6 class="nombreProducto">Modelo: paseo black</h6>
      </div>
 
     <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
-      <p class="verProducto">Ver Más</p>
+      <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici7.jpg" alt="bicicleta electrica urbana">
-      <a class="nombreProducto" href="#">Modelo: urbana premium</a>
+      <h6 class="nombreProducto">Modelo: urbana premium</h6>
     </div>
 
-</div>
-</div>
-</main>
-  <!--<footer>
-      <div class="container-for-all">
-        <div class="container-body">
-          <div class="colum1">
-            <h1>Bicielectric</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="colum2">
-            <h1>redes sociales</h1>
-            <div class="row">
-              <img src="" alt="">
-              <label for="">seguinos en Facebook</label>
-            </div>
-            <div class="row">
-              <img src="" alt="">
-              <label for="">seguinos en Instagram</label>
-            </div>
-            <div class="row">
-              <img src="" alt="">
-              <label for="">seguinos en Twitter</label>
-            </div>
-          </div>
-          <div class="colum3">
-            <h1>Informaciòn de contacto</h1>
-            <div class="row">
-              <img src="" alt="">
-              <label for="">Av. Lima 3476, Capital Federal</label>
-            </div>
-            <div class="row">
-              <img src="" alt="">
-              <label for="">+54 9 1143456789</label>
-            </div>
-            <div class="row">
-              <img src="" alt="">
-              <label for="">electrobici@electro.com.ar</label>
-            </div>
-
-          </div>
-        </div>
-        <div class="container-footer">
-          <div class="copyright">
-          </div>
-        </div>
       </div>
-
-    </footer>-->
+    </div>
   </div>
+</main>
+<div class="row">
+    <div class="textoDestacado col-lg-6 col-md-12" style="background:black;">
+      <h6>¿Por qué elegir una bici eléctrica?</h6>
+      <ul>
+        <li>Es más económica que cualquier otro medio de transporte. </li>
+        <li>Siempre tenés la opción de elegir hacer ejercicio. </li>
+        <li>Es un medio ágil para desaplazarse en la ciudad. </li>
+        <li>Tiene 0 emisiones y no contamina el medio ambiente. </li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+      </ul>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </div>
+    <div class="marcas col-lg-6 col-md-12">
+      <h5>Nuestras marcas</h5>
+      <img src="images/bh-1.png" alt="loho bh">
+      <img src="images/benelli.png" alt="logo benelli">
+      <img src="images/giant.png" alt="logo giant">
+      <img src="images/bold.png" alt="logo bold">
+
+    </div>
+</div>
+
+
+
+
+<!-- Comienzo footer-->
+<footer class="row">
+    <div class="colFooter col-lg-4 col-md-12">
+      <p>Dirección: Avenida Córdoba 2222
+      <b>CABA</b> <br>
+      <p>Tel: 15151-515515</p>
+      <a href="mailto:consultas@ecobici.com.ar">consultas@ecobici.com.ar</a>
+    </p>
+    </div>
+    <div class="colFooter col-lg-4 col-md-12">
+      <p>Seguinos en nuestras redes</p>
+      <a href="#"><img class="redes" src="images/icono-face.png" alt="facebook" width="35px;" height="35px;"></a>
+      <a href="#"><img class="redes" src="images/icono-insta.png" alt="instagram" width="35px;" height="35px;"></a>
+      <a href="#"><img class="redes" src="images/icono-wa.png" alt="whatsapp" width="35px;" height="35px;"></a>
+    </div>
+    <div class="colFooter col-lg-4 col-md-12 d-none d-md-block">
+      <p class="textoDestacado">
+        <i>Somos representantes exclusivos de las mejores marcas internacionales y ofrecemos garantía oficial.</i>
+      </p>
+    </div>
+</footer>
+<!--Fin del footer-->
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

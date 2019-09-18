@@ -25,7 +25,7 @@
 
 .productosDestacados{
   text-align: center;
-  height: 100px;
+  height: auto;
 }
 
 .productosDestacados h2{
@@ -110,18 +110,86 @@
   font-family: arial;
   }
 
-.nombreProducto:hover{
+.verProducto:hover{
   text-decoration: none;
-  color: #4FA4FF;
+  color: #FA6720;
 }
 
-.verProducto{/*position: absolute;
-    margin-left: 70%;*/
+.verProducto{
   text-transform: uppercase;
   align-self: center;
   display: inherit;
+  border-radius: 5px;
   background: #4fa4ffa6;
   padding: 5px 20px;
   font-size: 12px;
   color: white;
-  font-family: arial;}*/
+  font-family: arial;}
+
+.textoDestacado{
+    color: white;
+    padding-top: 20px;
+    margin: 10px 0;
+  }
+
+.textoDestacado h6, ul {
+    margin-left: 30px;
+    line-height: 30px;}
+
+.marcas{
+  text-align: center;
+  padding: 10px;
+  margin-left: 10px 0;
+
+}
+.marcas img{
+  width: 23%;
+  height: auto;
+}
+
+
+
+
+  /* comienzo css footer*/
+footer .colFooter{background: #4A545E;
+    color: white;
+    font-size: 13px;
+    font-family: Montserrat;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;}
+
+.colFooter img{
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+.colFooter a{color: white;
+  text-decoration: none;
+  te
+
+}
+.colFooter a:hover{
+    color: #FA6720;
+    text-decoration: none;
+}
+/*fin css del footer*/
+
+/*principio css de header*/
+header {
+  background:
+  #4A545E;
+  padding: 30px;
+}
+header .bg-light {
+      background-color: #4a545e!important;
+}
+.menu{
+  color: white!important;
+}
+.navbar-expand-lg .navbar-collapse {
+
+    flex-flow: row-reverse;}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white!important;}
