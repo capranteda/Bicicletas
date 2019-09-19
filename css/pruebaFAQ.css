@@ -1,0 +1,110 @@
+
+ * {box-sizing: border-box}
+ h2{
+
+  font-family: Montserrat, sans-serif;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #4A545E;
+  font-size: 40;
+ }
+
+.modif{
+  background: #4fa4ffa6;
+
+}
+ .container {
+   padding: 16px;
+ }
+
+ .bajar{
+   padding-bottom: 20px;
+ }
+
+ input[type=text], input[type=password] {
+   width: 100%;
+   padding: 15px;
+   margin: 5px 0 22px 0;
+   display: inline-block;
+   border: none;
+   background: #f1f1f1;
+ }
+
+ input[type=text]:focus, input[type=password]:focus {
+   background-color: #ddd;
+   outline: none;
+ }
+ .borde{
+
+ }
+
+ hr {
+   border: 1px solid #f1f1f1;
+   margin-bottom: 25px;
+ }
+
+ .registerbtn {
+   background-color: #4CAF50;
+   color: white;
+   padding: 16px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   opacity: 0.9;
+ }
+
+ .registerbtn:hover {
+   opacity:1;
+ }
+
+ a {
+   color: blue;
+ }
+
+
+
+ /* comienzo css footer*/
+footer .colFooter{background: #4A545E;
+   color: white;
+   font-size: 13px;
+   font-family: Montserrat;
+   text-align: center;
+   padding-top: 10px;
+   padding-bottom: 10px;}
+
+.colFooter img{
+   margin-left: 10px;
+   margin-right: 10px;
+
+ }
+.colFooter a{color: white;
+ text-decoration: none;
+ te
+
+}
+.colFooter a:hover{
+   color: #FA6720;
+   text-decoration: none;
+}
+/*fin css del footer*/
+
+/*principio css de header*/
+header {
+ background:
+ #4A545E;
+ height: 80px;
+}
+header .bg-light {
+     background-color: #4a545e!important;
+}
+.menu{
+ color: white!important;
+}
+.navbar-expand-lg .navbar-collapse {
+
+   flex-flow: row-reverse;}
+
+.navbar-light .navbar-nav .nav-link {
+   color: white!important;}
