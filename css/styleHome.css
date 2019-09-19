@@ -150,46 +150,46 @@
 
 
 
-  /* comienzo css footer*/
-footer .colFooter{background: #4A545E;
-    color: white;
-    font-size: 13px;
-    font-family: Montserrat;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;}
+ /* comienzo css footer*/
+ footer .colFooter{background: #4A545E;
+  color: white;
+  font-size: 13px;
+  font-family: Montserrat;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;}
 
 .colFooter img{
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 
-  }
+}
 .colFooter a{color: white;
-  text-decoration: none;
-  te
+text-decoration: none;
+te
 
 }
 .colFooter a:hover{
-    color: #FA6720;
-    text-decoration: none;
+  color: #FA6720;
+  text-decoration: none;
 }
 /*fin css del footer*/
 
 /*principio css de header*/
 header {
-  background:
-  #4A545E;
-  padding: 10px;
+background:
+#4A545E;
+height: 80px;
 }
 header .bg-light {
-      background-color: #4a545e!important;
+    background-color: #4a545e!important;
 }
 .menu{
-  color: white!important;
+color: white!important;
 }
 .navbar-expand-lg .navbar-collapse {
 
-    flex-flow: row-reverse;}
+  flex-flow: row-reverse;}
 
 .navbar-light .navbar-nav .nav-link {
-    color: white!important;}
+  color: white!important;}
