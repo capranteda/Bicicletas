@@ -176,6 +176,10 @@ te
 /*fin css del footer*/
 
 /*principio css de header*/
+.navbar-brand{
+  margin-left: 50px;
+  font-family: 'Mansalva', cursive;
+}
 header {
 background:
 #4A545E;
