@@ -11,6 +11,10 @@
   color: #4A545E;
   font-size: 40;
  }
+ .row{
+   margin-left: 0px;
+   margin-right: 0px;
+ }
 .modif{
   background: #4fa4ffa6;
 
@@ -99,6 +103,11 @@ body{
 }
 }
 /*principio css de header*/
+.navbar-brand{
+  margin-left: 50px;
+  font-family:'Playfair Display', serif;
+  }
+
 header {
  background:
  #4A545E;

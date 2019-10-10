@@ -90,17 +90,12 @@
  a {
    color: blue;
  }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> bb33fe4035af00a6f128dbc33de368809f3e67cc
-
 
 footer .colFooter{background: #4A545E;
    color: white;
    font-size: 13px;
-   font-family: Montserrat;
+   font-family: arial;
+   font-weight: bold;
    text-align: center;
    padding-top: 10px;
    padding-bottom: 10px;}
@@ -122,6 +117,12 @@ footer .colFooter{background: #4A545E;
 /*fin css del footer*/
 
 /*principio css de header*/
+
+.navbar-brand{
+  margin-left: 50px;
+  font-family:'Playfair Display', serif;
+  }
+
 header {
  background:
  #4A545E;

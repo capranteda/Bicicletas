@@ -1,114 +1,3 @@
-<?php
-//Compruebo foto
-if ($_FILES){
-  if ($_FILES["avatar"]["error"] !=0){
-    $errorAvatar = "La imagen no fue correctamente cargada";
-    $errores = true;
-
-  }
-  else{
-    $avat = pathinfo($_FILES ["avatar"]["name"], PATHINFO_EXTENSION);
-    if ($avat != "jpg" && $avat != "jpeg" && $avat != "png") {
-      $errorAvatar = "La foto debe ser jpg, jpeg o png <br>";
-      $errores = true;
-
-    }
-    else {
-      //Si no hay errores subimos la foto
-      move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/avatar.". $avat );
-    }
-  }
-}
-
-//Errores
-$errorNombre = "";
-$errorApellido = "";
-$errorEmail = "";
-$errorPassword = "";
-$errorAvatar = "";
-
-//averiguo si enviaron el formulario
-if($_POST){
-    //creo una variable para saber si hay errores o no
-    $errores = false;
-
-    if ($_FILES){
-      if ($_FILES["avatar"]["error"] !=0){
-        $errorAvatar = "La imagen no fue correctamente cargada <br>";
-        $errores = true;
-
-      }
-      else{
-        $avat = pathinfo($_FILES ["avatar"]["name"], PATHINFO_EXTENSION);
-        if ($avat != "jpg" && $avat != "jpeg" && $avat != "png") {
-          $errorAvatar = "La foto debe ser jpg, jpeg o png <br>";
-          $errores = true;
-
-        }
-        else {
-          //Si no hay errores subimos la foto
-          move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/avatar.". $avat );
-        }
-      }
-    }
-
-    //valido los datos
-    if($_POST["nombre"] == ""){
-        $errorNombre = "Ingrese su nombre";
-        $errores = true;
-    }else if(strlen($_POST["nombre"]) < 4){
-        $errorNombre = "Su nombre debe tener al menos 4 caracteres";
-        $errores = true;
-    }
-
-    if($_POST["apellido"] == ""){
-        $errorNombre = "Ingrese su apellido";
-        $errores = true;
-
-    }
-    if($_POST["psw"] == "" || $_POST["pass-repeat"] == ""){
-        $errorPassword = "Debe ingresar una contraseña";
-        $errores = true;
-    }else if($_POST["psw"] != $_POST["pass-repeat"]){
-        $errorPassword = "Las contraseñas deben coincidir";
-        $errores = true;
-    }else{
-        //hasheo psw
-        $contrasenia = password_hash($_POST["psw"],PASSWORD_DEFAULT);
-
-    }
-    //Si no tenemos errores creo el usuario
-    if(!$errores){
-        //creo el usuario
-        $usuario = [
-            "id"=> md5($_POST["nombre"]),
-            "username" => $_POST["nombre"],
-            "email" => $_POST["email"],
-            "password" => $contrasenia
-        ];
-
-        //traigo los usuarios del json
-        $usuariosEnJSON = file_get_contents("usuarios.json");
-        //convierto el json en array
-        $usuarios = json_decode($usuariosEnJSON);
-        //agrego el nuevo usuario al array de la base de datos
-        $usuarios[] = $usuario;
-        //convierto el nuevo array completo a json
-        $nuevosUsuariosEnJSON = json_encode($usuarios);
-        //escribo el nuevo json en el archivo .json
-        file_put_contents("usuarios.json",$nuevosUsuariosEnJSON);
-        exit;
-
-        //$usuarioEnJSON = json_encode($usuario);
-        //file_put_contents("usuarios.json",$usuarioEnJSON.PHP_EOL,FILE_APPEND);
-        //var_dump($usuarioEnJSON);
-
-        //redirijo a la bienvenida
-    }
-
-}
-
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,6 +8,8 @@ if($_POST){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilosregistro.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
@@ -126,75 +17,80 @@ if($_POST){
      <!--PRINCIPIO HEADER-->
        <header>
          <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1;">
-         <a class="navbar-brand" style="color:white; font-weight: bold; font-size:40px; text-shadow:3px 3px #4fa4ff87;" href="Inicio.html"><i>EcoBici</i></a>
+         <a class="navbar-brand" style="color:white; font-size:40px;" href="inicio.php">EcoBici</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
            <ul class="navbar-nav">
              <li class="nav-item active">
-               <a class="nav-link" href="inicio.html">Home <span class="sr-only">(current)</span></a>
+               <a class="nav-link" href="inicio.php">Home <span class="sr-only">(current)</span></a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="registro.html">Registrarse</a>
+               <a class="nav-link" href="registro.php">Registrarse</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="loginB.html">Login</a>
+               <a class="nav-link" href="loginB.php">Login</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="FAQ.html">FAQs</a>
+               <a class="nav-link" href="FAQ.php">FAQs</a>
              </li>
            </ul>
          </div>
        </nav>
        </header>
    <!--FIN DE HEADER-->
-       <div class="row contacto borde" style="margin-bottom:50px;">
-          <h3 class="col-12 text-center">REGISTRESE CON NOSOTROS</h3>
-          <form class="col-8 offset-2" action="registro.php" method="POST" enctype="multipart/form-data">
-              <div class="row">
-                  <img class=" bajar rounded img-fluid" src="images/fondo.jpg" alt="">
+       <main class="row contacto borde" style="margin-bottom:50px;">
+         <div class="portada" >
+          <div><img class=" bajar rounded img-fluid" src="images/fondo.jpg" alt="">
+          <div style="text-align:center; padding: 30px;"><h2>REGISTRATE</h2> </div>
+          </div>
+        </div>
 
-                  <label class="col-12 col-md-2 p-0" for="nombre"><b>Nombre</b></label>
-                  <input <?php echo $errorNombre!=""?"style='border:1px solid red;'":""; ?> class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" required>
-                  <span style="color:red;font-size:14px;"><?=$errorNombre;?></span>
+          <form class="col-8 offset-2" action="#" method="POST" enctype="multipart/form-data">
+          <div class="row"
 
-                  <label class="col-12 col-md-2" for="apellido"><b>Apellido</b></label>
-                  <input class="col-12 col-md-4" type="text" placeholder="Ingresar apellido" name="apellido" required>
+              <label class="col-12 col-md-2 p-0" for="nombre" style="align-self: center;"><b>Nombre:</b></label>
+                <input class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" required>
 
-                  <label class="col-12 p-0" for="email"><b>Email</b></label>
-                  <input class="col-12" type="text" placeholder="Ingresar Email" name="email" required>
-
-
+              <label class="col-12 col-md-2" for="apellido" style="align-self: center;"><b>Apellido:</b></label>
+                <input class="col-12 col-md-4" type="text" placeholder="Ingresar apellido" name="apellido" required>
 
 
-                  <label class="col-12 p-0" for="avatar"><b>Avatar</b></label>
-                  <div class="custom-file">
-                    <input <?php echo $errorAvatar!=""?"style='border:1px solid red;'":""; ?> type="file" class="custom-file-input" name="avatar"  lang="es">
-                    <label class="custom-file-label" for="avatar">Seleccionar Archivo</label>
-                    <span style="color:red;font-size:14px;"><?=$errorAvatar;?></span>
+              <label class="col-12 p-0" for="email"><b>Email:</b></label>
+                <input class="col-12" type="text" placeholder="Ingresar Email" name="email" required>
 
-                  </div>
+              <div class="col-12 col-md-6 pl-0 pr-1">
+                <label class="col-12 p-0"for="pass"><b>Contraseña:</b></label>
+                <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="psw" required>
+              </div>
 
+              <div class="col-12 col-md-6 p-0">
+                <label class="col-12 p-0"for="pass-repeat"><b>Confirmá tu contraseña:</b></label>
+                <input class="col-12"type="password" placeholder="Repetir contraseña" name="pass-repeat" required>
+              </div>
 
-
-
-                  <div class="col-12 col-md-6 pl-0 pr-1">
-                    <label class="col-12 p-0"for="pass"><b>Contraseña</b></label>
-                    <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="psw" required>
-                  </div>
-                  <div class="col-12 col-md-6 p-0">
-                    <label class="col-12 p-0"for="pass-repeat"><b>Confirme contraseña</b></label>
-                    <input class="col-12"type="password" placeholder="Repetir contraseña" name="pass-repeat" required>
-                    <span style="color:red;font-size:12px;"><?=$errorPassword;?></span>
-                  </div>
+              <div class="imagenPerfil row">
+                <label class="col-md-12 col-sm-6"><b>Subir imagen de perfil: </b></label>
+                  <input class="col-md-12 col-sm-6"type="file" name="imgenPerfil">
+              </div>
 
 
-                  <p class="text-left">Al registrarse ud acepta nuestros <a href="#">terminos y condiciones</a>.</p>
-                  <button  style="background: #4fa4ffa6;"type="submit" class="registerbtn mb-4">REGISTRESE</button>
+          </div>
+
+              <div class="col-12">
+                <p class="text-left">Al registrarte aceptás nuestros <a href="#">términos y condiciones</a>.</p>
+              </div>
+
+              <div class="contenedorButton col-12">
+                <button  type="submit" class="registerbtn mb-4" style="background: #4fa4ffa6";>Registrate</button>
+              </div>
+
+
+
               </div>
           </form>
-   </div>
+   </main>
    <!-- Comienzo footer-->
    <footer class="row">
        <div class="colFooter col-lg-4 col-md-12">

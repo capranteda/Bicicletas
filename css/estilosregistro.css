@@ -1,7 +1,9 @@
 
 
+ * {box-sizing: border-box
+ }
 
- * {box-sizing: border-box}
+
  h3{
 
   font-family: Montserrat, sans-serif;
@@ -10,6 +12,11 @@
   text-align: center;
   color: #4A545E;
   font-size: 40;
+ }
+
+ .row{
+   margin-left: 0px;
+   margin-right: 0px;
  }
 .modif{
   background: #4fa4ffa6;
@@ -36,29 +43,39 @@
    background-color: #ddd;
    outline: none;
  }
- .borde{
-
- }
 
  hr {
    border: 1px solid #f1f1f1;
    margin-bottom: 25px;
  }
-
+.contenedorButton{
+  display: flex;
+  justify-content: space-around;
+}
  .registerbtn {
    background-color: #4CAF50;
    color: white;
-   padding: 16px 20px;
+   padding: 10px 0px;
    margin: 8px 0;
    border: none;
    cursor: pointer;
-   width: 100%;
+   width: 50%;
    opacity: 0.9;
+   border-radius: 25px;
+   text-align: center;
+
  }
 
  .registerbtn:hover {
    opacity:1;
  }
+
+ .imagenPerfil{
+margin: 40px 0px;
+ }
+
+
+
 
  a {
    color: blue;
@@ -70,7 +87,8 @@
 footer .colFooter{background: #4A545E;
    color: white;
    font-size: 13px;
-   font-family: Montserrat;
+   font-weight: bold;
+   font-family: arial;
    text-align: center;
    padding-top: 10px;
    padding-bottom: 10px;}
@@ -92,6 +110,12 @@ footer .colFooter{background: #4A545E;
 /*fin css del footer*/
 
 /*principio css de header*/
+
+.navbar-brand{
+  margin-left: 50px;
+  font-family:'Playfair Display', serif;
+  }
+
 header {
  background:
  #4A545E;

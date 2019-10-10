@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>ECO BICIS | Home</title>
   </head>
   <body>
@@ -16,23 +16,23 @@
 <!--PRINCIPIO HEADER-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1;">
-      <a class="navbar-brand" style="color:white; font-size:40px;" href="Inicio.html">EcoBici</a>
+      <a class="navbar-brand"style="color:white; font-size:40px;" href="inicio.php">EcoBici</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="inicio.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="inicio.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="registro.html">Registrarse</a>
+            <a class="nav-link" href="registro.php">Registrarse</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="loginB.html">Login</a>
+            <a class="nav-link" href="loginB.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="FAQ.html">FAQs</a>
+            <a class="nav-link" href="FAQ.php">FAQs</a>
           </li>
         </ul>
       </div>
@@ -44,8 +44,8 @@
   <main>
 
     <!--Acá empieza el slide-->
-    <div class="slidePpal row">
-    <div class="slide col-12">
+    <div class="slidePpal row" style="margin-right: 0px;margin-left: 0px;">
+    <div class="slide col-12" style="padding-right: 0px;padding-left: 0px;">
       <div id="carouselPpal" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -67,9 +67,9 @@
     </div>
     </div>
     <!-- Aca la seccion principal-->
-    <div class="seccionPpal row">
+    <div class="seccionPpal row" style="margin-right: 0px;margin-left: 0px;">
       <!--lista de productos-->
-      <div class="listaProductos col-md-2 d-none d-md-block">
+      <aside class="listaProductos col-md-2 d-none d-md-block">
         <h6>CATEGORIAS</h6>
         <ul>
           <li><a href="#">Biciletas</a> </li>
@@ -88,60 +88,60 @@
           </ul>
 
         </div>
-      </div>
+      </aside>
 
 <!--  SECCION DE PRODUCTOS DESTACADOS-->
-  <div class="productosDestacados col-md-10 col-sm-12">
+  <section class="productosDestacados col-md-10 col-sm-12">
   <div class="row" id="tituloProductos">
     <div class="col-12"><h2>PRODUCTOS DESTACADOS</h2></div>
   </div>
   <div class="listabox row">
 
-    <div class="cajaProducto col-lg-4 col-md-12">
-      <a href="#" class="verProducto">Ver Más</a>
+    <article class="cajaProducto col-lg-4 col-md-12">
+        <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici1.jpg" alt="bicicleta electrica mountan bike">
       <h6 class="nombreProducto">Modelo: mountan bike</h6>
-    </div>
+    </article>
 
-    <div class="cajaProducto col-lg-4 col-md-12">
+    <article class="cajaProducto col-lg-4 col-md-12">
       <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici6.jpg" alt="bicicleta electrica dama">
       <h6 class="nombreProducto">Modelo: dama blanca</h6>
-    </div>
+    </article>
 
-    <div class="cajaProducto col-lg-4 col-md-12">
+    <article class="cajaProducto col-lg-4 col-md-12">
       <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici9.jpg" alt="bicicleta electrica urbana">
       <h6 class="nombreProducto">Modelo: urbana</h6>
-    </div>
+    </article>
 
   </div>
 
   <div class="listabox row">
 
-    <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
+    <article class="cajaProducto col-lg-4 col-md-12 col-sm-12">
       <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici5.jpg" alt="bicicleta electrica mountan bike">
       <h6 class="nombreProducto">Modelo: mountan negra</h6>
-    </div>
+    </article>
 
-    <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
+    <article class="cajaProducto col-lg-4 col-md-12 col-sm-12">
       <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici8.jpg" alt="bicicleta electrica urbana">
       <h6 class="nombreProducto">Modelo: paseo black</h6>
-     </div>
+    </article>
 
-    <div class="cajaProducto col-lg-4 col-md-12 col-sm-12">
+    <article class="cajaProducto col-lg-4 col-md-12 col-sm-12">
       <a href="#" class="verProducto">Ver Más</a>
       <img src="images/bici7.jpg" alt="bicicleta electrica urbana">
       <h6 class="nombreProducto">Modelo: urbana premium</h6>
-    </div>
+    </article>
 
       </div>
-    </div>
+    </section>
   </div>
 </main>
-<div class="row">
+<div class="row"style="margin-right: 0px;margin-left: 0px;">
     <div class="textoDestacado col-lg-6 col-md-12" style="background:black;">
       <h6>¿Por qué elegir una bici eléctrica?</h6>
       <ul>
@@ -167,7 +167,7 @@
 
 
 <!-- Comienzo footer-->
-<footer class="row">
+<footer class="row" style="margin-right: 0px;margin-left: 0px;">
     <div class="colFooter col-lg-4 col-md-12">
       <p>Dirección: Avenida Córdoba 2222
       <b>CABA</b> <br>

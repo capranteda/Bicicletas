@@ -1,5 +1,13 @@
 * {
   box-sizing: border-box;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right:
+}
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
 }
 #carouselPpal h1{
   font-weight: bold;
@@ -126,6 +134,13 @@
   color: white;
   font-family: arial;}
 
+}
+
+.botones{
+  display:flex;
+  justify-content:space-around;
+}
+
 .textoDestacado{
     color: white;
     padding-top: 20px;
@@ -154,7 +169,8 @@
  footer .colFooter{background: #4A545E;
   color: white;
   font-size: 13px;
-  font-family: Montserrat;
+  font-weight: bold;
+  font-family: arial;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;}
@@ -178,8 +194,8 @@ te
 /*principio css de header*/
 .navbar-brand{
   margin-left: 50px;
-  font-family: 'Mansalva', cursive;
-}
+  font-family:'Playfair Display', serif;
+  }
 header {
 background:
 #4A545E;
