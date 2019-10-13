@@ -29,7 +29,8 @@
             <a class="nav-link" href="registro.php">Registrarse</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="loginB.php">Login</a>
+            <!-- <a class="nav-link" href='loginB.php'>Login</a> -->
+          <a class="nav-link" href='loginB.php'>Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="FAQ.php">FAQs</a>
