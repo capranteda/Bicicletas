@@ -1,9 +1,21 @@
 <?php
-$nombre = "";
-$psw = "";
-$passre = "";
-$apellido ="";
-$mail = "";
+
+if ($_POST){
+  $nombre = $_POST["nombre"];
+  $psw =  $_POST["psw"];
+  $passre = $_POST["pass-repeat"] ;
+  $apellido = $_POST["apellido"];
+  $email = $_POST["email"];
+
+}else {
+  $nombre = "";
+  $psw = "";
+  $passre = "";
+  $apellido ="";
+  $mail = "";
+}
+
+
 //Compruebo foto
 if ($_FILES){
   if ($_FILES["avatar"]["error"] !=0){
@@ -98,6 +110,7 @@ if($_POST){
 
     }
     //Si no tenemos errores creo el usuario
+    $varEmail= $_POST["email"];
     if(!$errores){
         //creo el usuario
         $usuario = [
@@ -107,20 +120,44 @@ if($_POST){
             "email" => $_POST["email"],
             "password" => $contrasenia
         ];
+        $newRegEmail=$_POST["email"];
 
-
+        //REGISTRA EL NUEVO USUARIO $usuario
         //traigo los usuarios del json
         $usuariosEnJSON = file_get_contents("usuarios.json");
         //convierto el json en array
-        $usuarios = json_decode($usuariosEnJSON);
-        //agrego el nuevo usuario al array de la base de datos
-        $usuarios[] = $usuario;
-        //convierto el nuevo array completo a json
-        $nuevosUsuariosEnJSON = json_encode($usuarios);
-        //escribo el nuevo json en el archivo .json
-        file_put_contents("usuarios.json",$nuevosUsuariosEnJSON);
-        header("Location:loginB.html");
-        exit;
+        $usuarios = json_decode($usuariosEnJSON,true);
+
+        // CHEQUEO PARA EVITAR DUPLICACION DE USUARIOS
+        $coincidencia=false;
+        foreach($usuarios as $usuarioJson){
+            //pregunto si el email corresponde a algun usuario
+                 if ($usuarioJson["email"]==$newRegEmail){
+                      $coincidencia=true;
+                      //echo "hay coincidencia en el lazo";
+                      break;
+                  }
+         }
+        if ($coincidencia==true){
+                //echo "valor duplicado"."<br>";
+                //EMAIL NO DISPONNIBLE!!!!
+                header('#'); // VUELVE A CARGAR LA PAGINA CON LA PÉRSISTENCIA
+          }else {
+                  //agrego el nuevo usuario al array de la base de datos
+                  $usuarios[] = $usuario;
+                      //convierto el nuevo array completo a json
+                  $nuevosUsuariosEnJSON = json_encode($usuarios);
+                      //escribo el nuevo json en el archivo .json
+                  file_put_contents("usuarios.json",$nuevosUsuariosEnJSON);
+                            // direcciona al login
+                  header('Location:loginB.php?email='.urlencode($varEmail));
+                // header('Location:chequeoReg.php?email='.urlencode($varEmail));
+                 exit;
+
+                  }
+
+
+
 
     }
 
@@ -194,7 +231,7 @@ if($_POST){
                   <!--AVATAR -->
                   <label class="col-12 p-0" for="avatar"><b>Avatar</b></label>
                   <div class="custom-file">
-                    <input <?php echo $errorAvatar!=""?"style='border:1px solid red;'":""; ?> type="file" class="custom-file-input" name="avatar" value="<?=$errorAvatar?>"  lang="es">
+                    <!-- <input <?php echo $errorAvatar!=""?"style='border:1px solid red;'":""; ?> type="file" class="custom-file-input" name="avatar" value="<?=$errorAvatar?>"  lang="es"> -->
                     <label class="custom-file-label" for="avatar">Seleccionar Archivo</label>
                     <span style="color:red;font-size:14px;"><?=$errorAvatar;?></span>
                   </div>

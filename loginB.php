@@ -1,5 +1,35 @@
 <!DOCTYPE html>
 <?php
+// devuelve a la pg inicio si esta iniciada la sesion
+// if ($_SESSION["session"]==true){
+//     header('location:inicio.php');
+// }
+
+// si viene de la pag inicio
+if (!$_GET && !$_POST){
+    $tempEmail="";
+    $tempPassword="";
+}
+
+
+// Si viene de registro nuevo usuario php
+if ($_GET){
+    $tempEmail=$_GET["email"];
+    $tempPassword="";
+}else{
+  // if ($_GET){
+  //   $tempEmail=$_POST["email"];
+  //   $tempPassword=$_POST["password"];
+  // }
+
+}
+
+//Si viene este formulario
+if($_POST){
+     $tempEmail=$_POST["email"];
+     $tempPassword=$_POST["password"];
+}
+
 
 //averiguo si enviaron el formulario
 if($_POST){
@@ -14,8 +44,12 @@ if($_POST){
         if($usuario["email"] == $_POST["email"]){
             // veo si la contraseña es la correcta
             if(password_verify($_POST["password"],$usuario["password"])){
-              //si el email y la contraseña son correctos, inicio session y redirijo a home.
-            return session_start()&&header("Location:inicio.php");
+                  //si el email y la contraseña son correctos, inicio session y redirijo a home.
+                  session_start();
+                  $_SESSION['session']=true;
+                //  return session_start()&&header("Location:inicio.php");
+
+                return header("Location:inicio.php");
           }
         }
     }
@@ -76,10 +110,12 @@ if($_POST){
               <div class="row" style="display: flex;justify-content: center;">
 
                   <label class="col-12 pl-0" for="email"><b>Email</b></label>
-                  <input class="col-12 " type="text" placeholder="Ingresar Email" name="email" required>
+                  <input class="col-12 " type="email" placeholder="Ingresar Email" name="email"
+                  value=<?=$tempEmail?>>
 
                   <label class="col-12 pl-0"for="pass"><b>Contraseña</b></label>
-                  <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="password" required>
+                  <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="password"
+                  value=<?=$tempPassword?>>
 
                   <button style="background: #4fa4ffa6; width:45%;" type="submit" class="registerbtn mb-4">ENTRAR</button>
               </div>
