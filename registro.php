@@ -65,8 +65,7 @@ if($_POST){
         $errorNombre = "Su nombre debe tener al menos 4 caracteres";
         $errores = true;
     }else{
-      $nombre = $_POST["nombre"];
-    }
+      $nombre = $_POST["nombre"]; }
 
     if($_POST["apellido"] == ""){
         $errorApellido = "Ingrese su apellido";
@@ -146,23 +145,23 @@ if($_POST){
      <!--PRINCIPIO HEADER-->
        <header>
          <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1;">
-         <a class="navbar-brand" style="color:white; font-weight: bold; font-size:40px; text-shadow:3px 3px #4fa4ff87;" href="Inicio.html"><i>EcoBici</i></a>
+         <a class="navbar-brand" style="color:white; font-size:40px;" href="inicio.php">EcoBici</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
            <ul class="navbar-nav">
              <li class="nav-item active">
-               <a class="nav-link" href="inicio.html">Home <span class="sr-only">(current)</span></a>
+               <a class="nav-link" href="inicio.php">Home <span class="sr-only">(current)</span></a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="registro.html">Registrarse</a>
+               <a class="nav-link" href="registro.php">Registrarse</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="loginB.html">Login</a>
+               <a class="nav-link" href="loginB.php">Login</a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="FAQ.html">FAQs</a>
+               <a class="nav-link" href="FAQ.php">FAQs</a>
              </li>
            </ul>
          </div>
@@ -170,12 +169,13 @@ if($_POST){
        </header>
    <!--FIN DE HEADER-->
        <div class="row contacto borde" style="margin-bottom:50px;">
-          <h3 class="col-12 text-center">REGISTRESE CON NOSOTROS</h3>
+         <div class="portada" >
+          <div><img class=" bajar rounded img-fluid" src="images/fondo.jpg" alt="">
+          <div style="text-align:center; padding: 30px;"><h2>REGISTRATE</h2> </div>
+          </div>
+        </div>
           <form class="col-8 offset-2" action="registro.php" method="POST" enctype="multipart/form-data">
               <div class="row">
-                  <img class=" bajar rounded img-fluid" src="images/fondo.jpg" alt="">
-
-
                   <!--NOMBRE-->
                   <label class="col-12 col-md-2 p-0" for="nombre"><b>Nombre</b></label>
                   <input <?php echo $errorNombre!=""?"style='border:1px solid red;'":""; ?> class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" value="<?=$nombre?><?=$errorNombre;?>" required>
@@ -214,7 +214,10 @@ if($_POST){
 
 
                   <p class="text-left">Al registrarse ud acepta nuestros <a href="#">terminos y condiciones</a>.</p>
-                  <button  style="background: #4fa4ffa6;"type="submit" class="registerbtn mb-4">REGISTRESE</button>
+                  <div class="contenedorBoton col-12">
+                    <button  style="background: #4fa4ffa6; width:45%;" type="submit" class="registerbtn mb-4">ENVIAR</button>
+
+                  </div>
               </div>
           </form>
    </div>

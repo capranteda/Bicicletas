@@ -33,9 +33,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="FAQ.php">FAQs</a>
-          </li>
-        </ul>
-      </div>
+          </div>
     </nav>
     </header>
 <!--FIN DE HEADER-->

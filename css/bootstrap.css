@@ -227,7 +227,7 @@ label {
 }
 
 button {
-  border-radius: 0;
+  border-radius: 50px;
 }
 
 button:focus {

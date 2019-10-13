@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<?php
+
+//averiguo si enviaron el formulario
+if($_POST){
+    //traigo la base de datos
+    $usersJSON = file_get_contents("usuarios.json");
+    //la convierto a array
+    $usuarios = json_decode($usersJSON,true);
+
+    //recorro todos los usuarios
+    foreach($usuarios as $usuario){
+        //pregunto si el email corresponde a algun usuario
+        if($usuario["email"] == $_POST["email"]){
+            // veo si la contraseña es la correcta
+            if(password_verify($_POST["password"],$usuario["password"])){
+              //si el email y la contraseña son correctos, inicio session y redirijo a home.
+            return session_start()&&header("Location:inicio.php");
+          }
+        }
+    }
+}
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +30,7 @@
     <title>ECO BICIS | Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilosregistro.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 
@@ -48,7 +72,6 @@
         </div>
 
 
-
           <form class="col-8 offset-2" action="#" method="POST">
               <div class="row" style="display: flex;justify-content: center;">
 
@@ -56,10 +79,9 @@
                   <input class="col-12 " type="text" placeholder="Ingresar Email" name="email" required>
 
                   <label class="col-12 pl-0"for="pass"><b>Contraseña</b></label>
-                  <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="psw" required>
+                  <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="password" required>
 
-
-                  <button  style="background: #4fa4ffa6;"type="submit" class="registerbtn">INGRESAR</button>
+                  <button style="background: #4fa4ffa6; width:45%;" type="submit" class="registerbtn mb-4">ENTRAR</button>
               </div>
           </form>
    </main>

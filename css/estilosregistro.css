@@ -12,6 +12,11 @@
   font-size: 40;
  }
 
+ .navbar-brand{
+   margin-left: 50px;
+   font-family:'Playfair Display', serif;
+   }
+
 .modif{
   background: #4fa4ffa6;
 
@@ -65,6 +70,12 @@
    color: blue;
  }
 
+ .contenedorBoton{
+
+    display: flex;
+    justify-content: center;
+
+}
 
 
  /* comienzo css footer*/
