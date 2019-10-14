@@ -52,26 +52,14 @@ if($_POST){
         } else { $error="El email o la contraseña son incorrectos!";}
     }
 }
-//pruebo cookie para que no muestre error.
+//seteo cookie para recordar.
 if($_POST){
    if(isset($_POST["recordarme"])){
        setcookie("email",$_POST["email"]);
        setcookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
      }
-   $_SESSION["email"] = $_POST["email"];
-   $_SESSION["password"] =$_POST["password"];
  }
 
-//si recordar esta tildado, guardo cookie e inicio session
-
-/*if($_POST){
-    if($_POST["recordarme"] != null){
-        setCookie("email",$_POST["email"]);
-        setCookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
-    }
-    //$_SESSION["email"] = $_POST["email"];
-    //$_SESSION["password"] =$_POST["password"];
-  }*/
 
 ?>
 
@@ -128,6 +116,8 @@ if($_POST){
           <form class="col-8 offset-2" action="#" method="POST">
               <div class="row" style="display: flex;justify-content: center;">
 
+                <span class="error"><?=$error?></span>
+                <span class="error"><?=$errorUsuario?></span>
 
                   <label class="col-12 pl-0" for="email"><b>Email</b></label>
                   <input class="col-12 " type="email" placeholder="Ingresar Email" name="email"
@@ -136,9 +126,6 @@ if($_POST){
                   <label class="col-12 pl-0"for="pass"><b>Contraseña</b></label>
                   <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="password"
                   value=<?=$tempPassword?>>
-
-                    <span class="error"><?=$error?></span>
-                    <span class="error"><?=$errorUsuario?></span>
 
 
                   <div class="col-12">
