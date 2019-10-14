@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+<<<<<<< HEAD
 if ($_POST){
   $nombre = $_POST["nombre"];
   $psw =  $_POST["psw"];
@@ -31,6 +32,16 @@ if ($_FILES){
     }
   }
 }
+=======
+$nombre = "";
+$psw = "";
+$passre = "";
+$apellido ="";
+$mail = "";
+$usuariosEnJSON = file_get_contents("usuarios.json");//TRAIGO EL USUARIO DE JSON
+$usuarios = json_decode($usuariosEnJSON,true); //LO CONVIERTO EN ARRAY
+
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
 //Errores
 $errorNombre = "";
 $errorApellido = "";
@@ -41,6 +52,7 @@ $errorAvatar = "";
 if($_POST){
     //creo una variable para saber si hay errores o no
     $errores = false;
+<<<<<<< HEAD
     if ($_FILES){
       if ($_FILES["avatar"]["error"] !=0){
         $errorAvatar = "La imagen no fue correctamente cargada <br>";
@@ -58,34 +70,76 @@ if($_POST){
         }
       }
     }
+=======
+
+
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
     //valido los datos
     if($_POST["nombre"] == ""){
-        $errorNombre = "Ingrese su nombre";
+        $errorNombre = "*Ingrese su nombre";
         $errores = true;
     }else if(strlen($_POST["nombre"]) < 4){
-        $errorNombre = "Su nombre debe tener al menos 4 caracteres";
+        $errorNombre = "*Su nombre debe tener al menos 4 caracteres";
         $errores = true;
     }else{
+<<<<<<< HEAD
       $nombre = $_POST["nombre"]; }
+=======
+      $nombre = $_POST["nombre"];
+    }
+
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
     if($_POST["apellido"] == ""){
-        $errorApellido = "Ingrese su apellido";
+        $errorApellido = "*Ingrese su apellido";
         $errores = true;
     }
     else {
       $apellido = $_POST["apellido"];
     }
+<<<<<<< HEAD
+=======
+
+
+    // VALIDO MAIL/////////////////////////////////
+
+    $newRegEmail=$_POST["email"];
+    $coincidencia=false;
+    foreach($usuarios as $usuarioJson){
+        //pregunto si el email corresponde a algun usuario
+             if ($usuarioJson["email"]==$newRegEmail){
+                  $coincidencia=true;
+                  //echo "hay coincidencia en el lazo";
+                  break;
+              }
+     }
+
+
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
     if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL == false)){
-       $errorEmail = "Ingrese un mail valido";
+       $errorEmail = "*Ingrese un mail valido";
        $errores = true;
-    }
-    else {
+
+    }elseif($coincidencia==true){
+            $errores = true;
+            $errorEmail = "*Ya existe un usuario con ese email";
+
+    }else {
       $mail = $_POST["email"];
     }
+<<<<<<< HEAD
+=======
+
+
+    //VALIDO PASSWORD//////////////////////////////////
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
     if($_POST["psw"] == "" || $_POST["pass-repeat"] == ""){
-        $errorPassword = "Debe ingresar una contraseña";
+        $errorPassword = "*Debe ingresar una contraseña";
         $errores = true;
     }else if($_POST["psw"] != $_POST["pass-repeat"]){
-        $errorPassword = "Las contraseñas deben coincidir";
+        $errorPassword = "*Las contraseñas deben coincidir";
+        $errores = true;
+    }else if(strlen($_POST["psw"]) < 8){
+        $errorPassword = "*Debe contener al menos 8 caracteres";
         $errores = true;
     }else{
         //Persisto password
@@ -94,8 +148,27 @@ if($_POST){
         //hasheo psw
         $contrasenia = password_hash($_POST["psw"],PASSWORD_DEFAULT);
     }
+    if ($_FILES){
+      if ($_FILES["avatar"]["error"] !=0){
+        $errorAvatar = "*La imagen no fue correctamente cargada <br>";
+        $errores = true;
+
+      }
+      else{
+        $avat = pathinfo($_FILES ["avatar"]["name"], PATHINFO_EXTENSION);
+        if ($avat != "jpg" && $avat != "jpeg" && $avat != "png") {
+          $errorAvatar = "*La foto debe ser jpg, jpeg o png <br>";
+          $errores = true;
+
+        }
+        else {
+          //Si no hay errores subimos la foto
+          move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/". $mail . "." . $avat );
+        }
+      }
+    }
+
     //Si no tenemos errores creo el usuario
-    $varEmail= $_POST["email"];
     if(!$errores){
         //creo el usuario
         $usuario = [
@@ -105,6 +178,7 @@ if($_POST){
             "email" => $_POST["email"],
             "password" => $contrasenia
         ];
+<<<<<<< HEAD
         $newRegEmail=$_POST["email"];
         //REGISTRA EL NUEVO USUARIO $usuario
         //traigo los usuarios del json
@@ -137,6 +211,23 @@ if($_POST){
                 // header('Location:chequeoReg.php?email='.urlencode($varEmail));
                  exit;
                   }
+=======
+
+
+        //traigo los usuarios del json
+        $usuariosEnJSON = file_get_contents("usuarios.json");
+        //convierto el json en array
+        $usuarios = json_decode($usuariosEnJSON);
+        //agrego el nuevo usuario al array de la base de datos
+        $usuarios[] = $usuario;
+        //convierto el nuevo array completo a json
+        $nuevosUsuariosEnJSON = json_encode($usuarios);
+        //escribo el nuevo json en el archivo .json
+        file_put_contents("usuarios.json",$nuevosUsuariosEnJSON);
+        header("Location:loginB.html");
+        exit;
+
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
     }
 }
  ?>
@@ -243,6 +334,7 @@ if($_POST){
           <a href="mailto:consultas@ecobici.com.ar">consultas@ecobici.com.ar</a>
         </p>
         </div>
+<<<<<<< HEAD
         <div class="colFooter col-lg-4 col-md-12">
           <p>Seguinos en nuestras redes</p>
           <a href="#"><img class="redes" src="images/icono-face.png" alt="facebook" width="35px;" height="35px;"></a>
@@ -261,3 +353,81 @@ if($_POST){
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  </body>
  </html>
+=======
+          <form class="col-8 offset-2" action="registro.php" method="POST" enctype="multipart/form-data">
+              <div class="row">
+                  <!--NOMBRE-->
+                  <span class="col-12 pl-0" style="color:red;font-size:14px;"><?=$errorNombre;?></span>
+                  <label class="col-12 col-md-2 p-0" for="nombre"><b>Nombre</b></label>
+                  <input  class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" value="<?=$nombre?>" required>
+
+                  <!--APELLIDO-->
+                  <label class="col-12 col-md-2 pl-0" for="apellido"><b>Apellido</b></label>
+                  <input class="col-12 col-md-4" value="<?=$apellido?>"type="text" placeholder="Ingresar apellido" name="apellido" required>
+
+
+                  <!--EMAIL-->
+                  <span style="color:red;font-size:14px;"><?=$errorEmail;?></span>
+                  <label class="col-12 p-0" for="email"><b>Email</b></label>
+                  <input class="col-12" value="<?=$mail?>"  type="email" placeholder="Ingresar Email" name="email" required>
+
+
+                  <!--AVATAR -->
+                  <span style="color:red;font-size:14px;"><?=$errorAvatar;?></span>
+                  <label class="col-12 p-0" for="avatar"><b>Avatar</b></label>
+                  <div class="custom-file">
+                    <input  type="file" class="custom-file-input" name="avatar" value="<?=$errorAvatar?>"  lang="es">
+                    <label class="custom-file-label" for="avatar">Seleccionar Archivo</label>
+                  </div>
+
+
+
+                  <!--PASSWORD -->
+                  <div class="col-12 col-md-6 pl-0 pr-1">
+                    <span style="color:red;font-size:14px;"><?=$errorPassword;?></span>
+                    <label class="col-12 p-0"for="pass"><b>Contraseña</b></label>
+                    <input value="<?=$psw?>" class="col-12"type="password" placeholder=" Ingresar contraseña" name="psw" required>
+                  </div>
+                  <div class="col-12 col-md-6 p-0">
+                    <span style="color:red;font-size:14px;"><?=$errorPassword;?></span>
+                    <label class="col-12 p-0"for="pass-repeat"><b>Confirme contraseña</b></label>
+                    <input value="<?=$psw?>" class="col-12"type="password" placeholder="Repetir contraseña" name="pass-repeat" required>
+                  </div>
+
+
+                  <p class="text-left">Al registrarse ud acepta nuestros <a href="#">terminos y condiciones</a>.</p>
+                  <div class="contenedorBoton col-12">
+                    <button  style="background: #4fa4ffa6; width:45%;" type="submit" class="registerbtn mb-4">ENVIAR</button>
+
+                  </div>
+              </div>
+          </form>
+   </div>
+   <!-- Comienzo footer-->
+   <footer class="row">
+       <div class="colFooter col-lg-4 col-md-12">
+         <p>Dirección: Avenida Córdoba 2222
+         <b>CABA</b> <br>
+         <p>Tel: 15151-515515</p>
+         <a href="mailto:consultas@ecobici.com.ar">consultas@ecobici.com.ar</a>
+       </p>
+       </div>
+       <div class="colFooter col-lg-4 col-md-12">
+         <p>Seguinos en nuestras redes</p>
+         <a href="#"><img class="redes" src="images/icono-face.png" alt="facebook" width="35px;" height="35px;"></a>
+         <a href="#"><img class="redes" src="images/icono-insta.png" alt="instagram" width="35px;" height="35px;"></a>
+         <a href="#"><img class="redes" src="images/icono-wa.png" alt="whatsapp" width="35px;" height="35px;"></a>
+       </div>
+       <div class="colFooter col-lg-4 col-md-12 d-none d-md-block">
+         <p class="textoDestacado">
+           <i>Somos representantes exclusivos de las mejores marcas internacionales y ofrecemos garantía oficial.</i>
+         </p>
+       </div>
+   </footer>
+   <!--Fin del footer-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+>>>>>>> 5a87ba4d8b66aaabe4199062bfc8998a08fcf3ed
