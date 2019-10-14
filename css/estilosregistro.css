@@ -19,8 +19,17 @@
 
 .modif{
   background: #4fa4ffa6;
-
 }
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.error{
+  color: red;
+}
+
  .container {
    padding: 16px;
  }

@@ -4,14 +4,11 @@
 // if ($_SESSION["session"]==true){
 //     header('location:inicio.php');
 // }
-
 // si viene de la pag inicio
 if (!$_GET && !$_POST){
     $tempEmail="";
     $tempPassword="";
 }
-
-
 // Si viene de registro nuevo usuario php
 if ($_GET){
     $tempEmail=$_GET["email"];
@@ -21,23 +18,22 @@ if ($_GET){
   //   $tempEmail=$_POST["email"];
   //   $tempPassword=$_POST["password"];
   // }
-
 }
 
+$error="";
 //Si viene este formulario
 if($_POST){
      $tempEmail=$_POST["email"];
      $tempPassword=$_POST["password"];
 }
-
-
 //averiguo si enviaron el formulario
+
+
 if($_POST){
     //traigo la base de datos
     $usersJSON = file_get_contents("usuarios.json");
     //la convierto a array
     $usuarios = json_decode($usersJSON,true);
-
     //recorro todos los usuarios
     foreach($usuarios as $usuario){
         //pregunto si el email corresponde a algun usuario
@@ -48,9 +44,8 @@ if($_POST){
                   session_start();
                   $_SESSION['session']=true;
                 //  return session_start()&&header("Location:inicio.php");
-
-                return header("Location:inicio.php");
-          }
+                header("Location:inicio.php");
+          } else { $error="El usuario o la contraseña son incorrectas!";}
         }
     }
 }
@@ -63,8 +58,8 @@ if($_POST){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ECO BICIS | Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/estilosregistro.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/estilosregistro.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 
@@ -109,6 +104,7 @@ if($_POST){
           <form class="col-8 offset-2" action="#" method="POST">
               <div class="row" style="display: flex;justify-content: center;">
 
+
                   <label class="col-12 pl-0" for="email"><b>Email</b></label>
                   <input class="col-12 " type="email" placeholder="Ingresar Email" name="email"
                   value=<?=$tempEmail?>>
@@ -116,6 +112,15 @@ if($_POST){
                   <label class="col-12 pl-0"for="pass"><b>Contraseña</b></label>
                   <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="password"
                   value=<?=$tempPassword?>>
+
+                    <span class="error"><?=$error?></span>
+
+
+                  <div class="col-12">
+                    <label class=""for="pass"><b>Recordarme</b></label>
+                    <input class="" type="checkbox" name="recordarme"
+                    value="recordarme">
+                  </div>
 
                   <button style="background: #4fa4ffa6; width:45%;" type="submit" class="registerbtn mb-4">ENTRAR</button>
               </div>
