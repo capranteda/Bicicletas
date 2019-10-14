@@ -20,13 +20,15 @@ if ($_GET){
   // }
 }
 
-$error="";
 //Si viene este formulario
 if($_POST){
      $tempEmail=$_POST["email"];
      $tempPassword=$_POST["password"];
 }
 //averiguo si enviaron el formulario
+
+$error="";
+$errorUsuario="";
 
 
 if($_POST){
@@ -42,13 +44,24 @@ if($_POST){
             if(password_verify($_POST["password"],$usuario["password"])){
                   //si el email y la contraseña son correctos, inicio session y redirijo a home.
                   session_start();
-                  $_SESSION['session']=true;
-                //  return session_start()&&header("Location:inicio.php");
                 header("Location:inicio.php");
-          } else { $error="El usuario o la contraseña son incorrectas!";}
-        }
+          }
+        } else { $error="El email o la contraseña son incorrectos!";}
     }
 }
+
+//si recordar esta tildado, guardo cookie e inicio session
+if($_POST){
+    if($_POST["recordarme"] != null){
+        setCookie("email",$_POST["email"]);
+        setCookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
+
+    }
+    $_SESSION["email"] = $_POST["email"];
+    $_SESSION["password"] =$_POST["password"];
+
+  }
+
 ?>
 
 <html lang="en">
@@ -114,6 +127,7 @@ if($_POST){
                   value=<?=$tempPassword?>>
 
                     <span class="error"><?=$error?></span>
+                    <span class="error"><?=$errorUsuario?></span>
 
 
                   <div class="col-12">

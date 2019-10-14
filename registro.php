@@ -146,6 +146,8 @@ if($_POST){
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/estilosregistro.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
