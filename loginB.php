@@ -44,23 +44,34 @@ if($_POST){
             if(password_verify($_POST["password"],$usuario["password"])){
                   //si el email y la contraseña son correctos, inicio session y redirijo a home.
                   session_start();
+                  $_SESSION["email"] = $_POST["email"];
+                  $_SESSION["password"] =$_POST["password"];
+
                 header("Location:inicio.php");
           }
         } else { $error="El email o la contraseña son incorrectos!";}
     }
 }
+//pruebo cookie para que no muestre error.
+if($_POST){
+   if(isset($_POST["recordarme"])){
+       setcookie("email",$_POST["email"]);
+       setcookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
+     }
+   $_SESSION["email"] = $_POST["email"];
+   $_SESSION["password"] =$_POST["password"];
+ }
 
 //si recordar esta tildado, guardo cookie e inicio session
-if($_POST){
+
+/*if($_POST){
     if($_POST["recordarme"] != null){
         setCookie("email",$_POST["email"]);
         setCookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
-
     }
-    $_SESSION["email"] = $_POST["email"];
-    $_SESSION["password"] =$_POST["password"];
-
-  }
+    //$_SESSION["email"] = $_POST["email"];
+    //$_SESSION["password"] =$_POST["password"];
+  }*/
 
 ?>
 
