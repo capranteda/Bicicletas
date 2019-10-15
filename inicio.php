@@ -45,9 +45,6 @@ if ($_GET["var"]==1){
           </li>
           <li class="nav-item">
            <a class="nav-link" href='loginB.php'>Login</a>
-           <li class="nav-item">
-            <a class="nav-link" href='logout.php'>Logout</a>
-           <!-- <a class="nav-link" href='chequeoInicioB.php'>Login</a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="FAQ.php">FAQs</a>

@@ -1,13 +1,4 @@
 <?php
-session_start();
-// Redireccionada a Inicio si ya esta iniciada la session
-if (isset($_SESSION)){
-    if (isset($_SESSION["session"])){
-        if($_SESSION["session"]==1){
-            header ('location:inicio.php');//regresa a la pagina de inicio
-        }
-    }
-}
 
 $nombre = "";
 $psw = "";
