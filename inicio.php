@@ -1,4 +1,19 @@
+<!-- Chequeo de inicio de session -->
+<?
+if ($_GET["var"]==1){
+  $var=1;
+  session_start();
+  $_SESSION["session"]==true;
+
+  header ('location:chequeoInicio.php');
+  header ('location:chequeoInicio.php?var='.$var);
+}else {$var=0}
+
+
+?>
+
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -29,8 +44,10 @@
             <a class="nav-link" href="registro.php">Registrarse</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" href='loginB.php'>Login</a> -->
-          <a class="nav-link" href='loginB.php'>Login</a>
+           <a class="nav-link" href='loginB.php'>Login</a>
+           <li class="nav-item">
+            <a class="nav-link" href='logout.php'>Logout</a>
+           <!-- <a class="nav-link" href='chequeoInicioB.php'>Login</a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="FAQ.php">FAQs</a>

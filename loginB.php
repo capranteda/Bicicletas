@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <?php
-// devuelve a la pg inicio si esta iniciada la sesion
-// if ($_SESSION["session"]==true){
-//     header('location:inicio.php');
-// }
+// Chequeo de inicio de session activa
+session_start();
+// Redireccionada a Inicio si ya esta iniciada la session
+  if (isset($_SESSION)){
+      if (isset($_SESSION["session"])){
+          if($_SESSION["session"]==1){
+              header ('location:inicio.php');//regresa a la pagina de inicio
+          }
+      }
+  }
+
 // si viene de la pag inicio
 if (!$_GET && !$_POST){
     $tempEmail="";
@@ -46,9 +53,11 @@ if($_POST){
                   session_start();
                   $_SESSION["email"] = $_POST["email"];
                   $_SESSION["password"] =$_POST["password"];
+                  $_SESSION["session"]=true;
 
-                header("Location:inicio.php");
-          }
+                  $var=true; // Variable que permite iniciar session em INICIO si esta validado el usuario
+                  header('Location:inicio.php?var='.$var);
+            }
         } else { $error="El email o la contraseña son incorrectos!";}
     }
 }
