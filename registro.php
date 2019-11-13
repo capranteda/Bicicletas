@@ -59,7 +59,7 @@ if($_POST){
         //guardo la foto
         move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/". $mail . "." . $avat );
         //aca registro.
-        require_once 'clases/BD.php';
+        require_once 'clases/base_datos.php';
         $bd = new BD;
         $id_user = $bd->registrarUsuario($_POST["nombre"],$_POST["email"],$_POST["psw"],$_POST["apellido"]);
         //si se registro bien...
