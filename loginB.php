@@ -1,64 +1,28 @@
 <!DOCTYPE html>
 <?php
+//persistencia
 
-// si viene de la pag inicio
 if (!$_GET && !$_POST){
     $tempEmail="";
-    $tempPassword="";
-}
-// Si viene de registro nuevo usuario php
-if ($_GET){
-    $tempEmail=$_GET["email"];
-    $tempPassword="";
-}else{
-  // if ($_GET){
-  //   $tempEmail=$_POST["email"];
-  //   $tempPassword=$_POST["password"];
-  // }
+    $tempPassword="";}
+
+if ($_POST){
+     $tempEmail = $_POST["email"];
+     $tempPassword = $_POST["password"];
 }
 
-//Si viene este formulario
+
+//validar
+
+$errorLogin = "";
 if($_POST){
-     $tempEmail=$_POST["email"];
-     $tempPassword=$_POST["password"];
-}
-//averiguo si enviaron el formulario
+    require_once 'clases/Validador.php';
+    $validador = new Validador;
+    $errorLogin = $validador->login($_POST["email"],$_POST["password"]);}
 
-$error="";
-$errorUsuario="";
-
-
-if($_POST){
-    //traigo la base de datos
-    $usersJSON = file_get_contents("usuarios.json");
-    //la convierto a array
-    $usuarios = json_decode($usersJSON,true);
-    //recorro todos los usuarios
-    foreach($usuarios as $usuario){
-        //pregunto si el email corresponde a algun usuario
-        if($usuario["email"] == $_POST["email"]){
-            // veo si la contraseña es la correcta
-            if(password_verify($_POST["password"],$usuario["password"])){
-                  //si el email y la contraseña son correctos, inicio session y redirijo a home.
-                  session_start();
-                  $_SESSION["email"] = $_POST["email"];
-                  $_SESSION["password"] =$_POST["password"];
-                  $_SESSION["session"]=true;
-
-                  $var=true; // Variable que permite iniciar session em INICIO si esta validado el usuario
-                  header('Location:inicio.php?var='.$var);
-            }
-        } else { $error="El email o la contraseña son incorrectos!";}
-    }
-}
-//seteo cookie para recordar.
-if($_POST){
-   if(isset($_POST["recordarme"])){
-       setcookie("email",$_POST["email"]);
-       setcookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
-     }
- }
-
+    if($errorLogin == ""){
+    
+  }
 
 ?>
 
@@ -115,8 +79,7 @@ if($_POST){
           <form class="col-8 offset-2" action="#" method="POST">
               <div class="row" style="display: flex;justify-content: center;">
 
-                <span class="error"><?=$error?></span>
-                <span class="error"><?=$errorUsuario?></span>
+                <span class="error"><?=$errorLogin?></span>
 
                   <label class="col-12 pl-0" for="email"><b>Email</b></label>
                   <input class="col-12 " type="email" placeholder="Ingresar Email" name="email"
