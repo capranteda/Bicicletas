@@ -5,12 +5,14 @@ class Base{
     private $conexion;
 
     public function __construct(){
-        $dsn = "mysql:host=localhost;dbname=base_datos";
+        $dsn = "mysql:host=localhost;dbname=bici_db";
         $user = "root";
-        $pass = "root";
-        $opciones = [];
+        $pass = "";
+        $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
-        $this->conexion = new PDO($dns,$user,$pass,$opciones);
+
+
+        $this->conexion = new PDO($dsn,$user,$pass,$opciones);
     }
 
     public function registrarUsuario($nombre,$email,$pass){
@@ -28,5 +30,14 @@ class Base{
         $consulta = $this->conexion->query("SELECT * FROM usuarios WHERE id = $id");
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
+
+    /*//loguin de usuarios
+    public function loguearUser($email, $pass){
+      $this ->conexion = prepare("SELECT id, email, password FROM usuarios WHERE email = :email");
+      $consulta ->bindValue(":email", $email);
+      $consulta -> execute();
+      $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+
+    }*/
 }
  ?>

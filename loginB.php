@@ -8,8 +8,7 @@ if (!$_GET && !$_POST){
 
 if ($_POST){
      $tempEmail = $_POST["email"];
-     $tempPassword = $_POST["password"];
-}
+     $tempPassword = $_POST["password"];}
 
 
 //validar
@@ -20,9 +19,13 @@ if($_POST){
     $validador = new Validador;
     $errorLogin = $validador->login($_POST["email"],$_POST["password"]);}
 
+/*//logueo
     if($errorLogin == ""){
-    
-  }
+      require_once 'clases/base_datos.php';
+      $bd = new Base;
+      $bd -> loguearUser($_POST["email"], $_POST["pasword"]);
+
+  }*/
 
 ?>
 
@@ -86,7 +89,7 @@ if($_POST){
                   value=<?=$tempEmail?>>
 
                   <label class="col-12 pl-0"for="pass"><b>Contraseña</b></label>
-                  <input class="col-12"type="password" placeholder=" Ingresar contraseña" name="password"
+                  <input class="col-12" type="password" placeholder=" Ingresar contraseña" name="password"
                   value=<?=$tempPassword?>>
 
 
