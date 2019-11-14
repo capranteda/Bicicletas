@@ -60,7 +60,7 @@ if($_POST){
         move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/". $mail . "." . $avat );
         //aca registro.
         require_once 'clases/base_datos.php';
-        $bd = new BD;
+        $bd = new Base;
         $id_user = $bd->registrarUsuario($_POST["nombre"],$_POST["email"],$_POST["psw"],$_POST["apellido"]);
         //si se registro bien...
         if($id_user){
