@@ -31,13 +31,12 @@ class Base{
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-    /*//loguin de usuarios
-    public function loguearUser($email, $pass){
-      $this ->conexion = prepare("SELECT id, email, password FROM usuarios WHERE email = :email");
-      $consulta ->bindValue(":email", $email);
-      $consulta -> execute();
-      $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+    //login de usuarios
+    public function traerUser($email,$pass){
+      $consulta = $this->conexion->prepare("SELECT * usuario WHERE email = $email");
+      return $consulta->fetch(PDO::FETCH_ASSOC);
 
-    }*/
-}
+
+      }
+  }
  ?>

@@ -4,7 +4,8 @@
 
 if (!$_GET && !$_POST){
     $tempEmail="";
-    $tempPassword="";}
+    $tempPassword="";
+  }
 
 if ($_POST){
      $tempEmail = $_POST["email"];
@@ -17,16 +18,15 @@ $errorLogin = "";
 if($_POST){
     require_once 'clases/Validador.php';
     $validador = new Validador;
-    $errorLogin = $validador->login($_POST["email"],$_POST["password"]);}
+    $errorLogin = $validador->login($_POST["email"],$_POST["password"]);
+  }
 
-/*//logueo
+//logueo
     if($errorLogin == ""){
       require_once 'clases/base_datos.php';
-      $bd = new Base;
-      $bd -> loguearUser($_POST["email"], $_POST["pasword"]);
+      
 
-  }*/
-
+  }
 ?>
 
 <html lang="en">
