@@ -30,12 +30,13 @@ class Base{
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-    //login de usuarios
-    public function traerUser($email,$pass){
-      $consulta = $this->conexion->prepare("SELECT * usuario WHERE email = $email");
+    //LLEVO DATOS DE USUARIO A LOGIN PARA COMPARAR
+
+    public function traerUser($email, $pass){
+      $consulta = $this->conexion->prepare("SELECT * FROM usuarios WHERE email = '$email'");
+      $consulta -> execute();
       return $consulta->fetch(PDO::FETCH_ASSOC);
-
-
-      }
+    }
   }
+
  ?>

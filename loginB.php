@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <?php
-//persistencia
+if (isset ($_SESSION['user_id'])) {
+  session_start();
+  header('Location: inicio.php');
+}
 
-if (!$_GET && !$_POST){
+//PERSISTO LOS DATOS
     $tempEmail="";
     $tempPassword="";
-  }
 
 if ($_POST){
      $tempEmail = $_POST["email"];
      $tempPassword = $_POST["password"];}
 
 
-//validar
+//SI VIENE FORM POR POST, VALIDO QUE NO ESTE VACIO Y TENGA FORMATO EMAIL
 
 $errorLogin = "";
+$mjsError = "";
 if($_POST){
     require_once 'clases/Validador.php';
     $validador = new Validador;
     $errorLogin = $validador->login($_POST["email"],$_POST["password"]);
-  }
 
-//logueo
-    if($errorLogin == ""){
-      require_once 'clases/base_datos.php';
-      
+//SI NO HAY ERRORES DE VALIDACION, CONSULTO BASE DE DATOS
+  if($errorLogin == ""){
+    include 'clases/base_datos.php';
+    $base = new Base;
+
+    $usuario = $base -> traerUser($_POST["email"],$_POST["password"]);
+
+
+//COMPARO EL PASS QUE ME LLEGA POR POST CON EL DE LA BASE Y SI ESTA OK INICIO SESION
+
+    if (password_verify($_POST["password"], $usuario['password'])) {
+      session_start();
+      $_SESSION["id_usuario_logueado"] = $usuario['id'];
+      header('Location:inicio.php');
+    }
+//SI EL PASS O EL MAIL ESTAN MAL, DOY MENSAJE DE ERROR
+    else {
+      $mjsError = "Error de login";
+    }
 
   }
+}
+
+//SETEO LA COOKIE DE RECORDARME
+if($_POST){
+   if(isset($_POST["recordarme"])){
+       setcookie("email",$_POST["email"]);
+       setcookie("password", password_hash($_POST["password"],PASSWORD_DEFAULT));
+     }
+ }
+
 ?>
 
 <html lang="en">
@@ -83,6 +110,7 @@ if($_POST){
               <div class="row" style="display: flex;justify-content: center;">
 
                 <span class="error"><?=$errorLogin?></span>
+                <span class="error"><?=$mjsError?></span>
 
                   <label class="col-12 pl-0" for="email"><b>Email</b></label>
                   <input class="col-12 " type="email" placeholder="Ingresar Email" name="email"
