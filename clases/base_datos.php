@@ -10,16 +10,15 @@ class Base{
         $pass = "";
         $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
-
-
         $this->conexion = new PDO($dsn,$user,$pass,$opciones);
     }
 
-    public function registrarUsuario($nombre,$email,$pass){
-        $consulta = $this->conexion->prepare("INSERT INTO usuarios (id,nombre,email,contrasenia) VALUES
-        DEFAULT, :nombre1 ,:email1 , :pass1 ");
+    public function registrarUsuario($nombre,$email,$apellido,$pass){
+        $consulta = $this->conexion->prepare("INSERT INTO usuarios (id,nombre,email,apellido,contrasenia) VALUES
+        DEFAULT, :nombre1 ,:email1, :apellido1 :pass1 ");
         $consulta->bindValue(":nombre1",$nombre);
         $consulta->bindValue(":email1",$email);
+        $consulta->bindValue(":apellido1",$apellido);
         $consulta->bindValue(":pass1",password_hash($pass,PASSWORD_DEFAULT));
         $consulta->execute();
 

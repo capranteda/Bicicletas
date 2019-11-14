@@ -5,87 +5,35 @@ $psw = "";
 $passre = "";
 $apellido ="";
 $mail = "";
-$usuariosEnJSON = file_get_contents("usuarios.json");//TRAIGO EL USUARIO DE JSON
-$usuarios = json_decode($usuariosEnJSON,true); //LO CONVIERTO EN ARRAY
+
 
 //Errores
 $errorNombre = "";
-$errorApellido = "";
 $errorEmail = "";
-$errorPassword = "";
+$errorApellido = "";
+$errorContrasenia = "";
 $errorAvatar = "";
+$errores = false;
 
-//averiguo si enviaron el formulario
+
+//////////////////////////////////////////////////////////////
 if($_POST){
-    //creo una variable para saber si hay errores o no
-    $errores = false;
+    require_once 'clases/ValidadorReg.php';
+    $validador = new Validador;
+    //VALIDO
+    $errorNombre = $validador->full_name($_POST["nombre"]);
+    $errorApellido = $validador->apellido($_POST["apellido"]);
+    $errorEmail = $validador->email($_POST["email"]);
+    $errorContrasenia = $validador->contrasenias($_POST["psw"],$_POST["pass-repeat"]);
 
+    //si no hay errores de validacion persistimos
+    $nombre = $validador->persisteNombre($_POST["nombre"]);
+    $apellido = $validador->persisteApellido($_POST["apellido"]);
+    $psw = $validador->persistePsw($_POST["psw"],$_POST["pass-repeat"]);
+    $mail = $validador->persisteEmail( $_POST["email"]);
 
-    //valido los datos
-    if($_POST["nombre"] == ""){
-        $errorNombre = "*Ingrese su nombre";
-        $errores = true;
-    }else if(strlen($_POST["nombre"]) < 4){
-        $errorNombre = "*Su nombre debe tener al menos 4 caracteres";
-        $errores = true;
-    }else{
-      $nombre = $_POST["nombre"];
-    }
-
-    if($_POST["apellido"] == ""){
-        $errorApellido = "*Ingrese su apellido";
-        $errores = true;
-    }
-    else {
-      $apellido = $_POST["apellido"];
-    }
-
-
-    // VALIDO MAIL/////////////////////////////////
-
-    $newRegEmail=$_POST["email"];
-    $coincidencia=false;
-    foreach($usuarios as $usuarioJson){
-        //pregunto si el email corresponde a algun usuario
-             if ($usuarioJson["email"]==$newRegEmail){
-                  $coincidencia=true;
-                  //echo "hay coincidencia en el lazo";
-                  break;
-              }
-     }
-
-
-    if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL == false)){
-       $errorEmail = "*Ingrese un mail valido";
-       $errores = true;
-
-    }elseif($coincidencia==true){
-            $errores = true;
-            $errorEmail = "*Ya existe un usuario con ese email";
-
-    }else {
-      $mail = $_POST["email"];
-    }
-
-
-    //VALIDO PASSWORD//////////////////////////////////
-    if($_POST["psw"] == "" || $_POST["pass-repeat"] == ""){
-        $errorPassword = "*Debe ingresar una contraseña";
-        $errores = true;
-    }else if($_POST["psw"] != $_POST["pass-repeat"]){
-        $errorPassword = "*Las contraseñas deben coincidir";
-        $errores = true;
-    }else if(strlen($_POST["psw"]) < 8){
-        $errorPassword = "*Debe contener al menos 8 caracteres";
-        $errores = true;
-    }else{
-        //Persisto password
-        $psw = $_POST["psw"];
-        $passre = $_POST["psw"];
-        //hasheo psw
-        $contrasenia = password_hash($_POST["psw"],PASSWORD_DEFAULT);
-
-    }
+////////////////////////////////////////////////////////////////
+  //VALIDO LA FOTO
     if ($_FILES){
       if ($_FILES["avatar"]["error"] !=0){
         $errorAvatar = "*La imagen no fue correctamente cargada <br>";
@@ -100,40 +48,33 @@ if($_POST){
 
         }
         else {
-          //Si no hay errores subimos la foto
-          move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/". $mail . "." . $avat );
+          $errorAvatar = "#";
         }
       }
     }
 
-    //Si no tenemos errores creo el usuario
-    if(!$errores){
-        //creo el usuario
-        $usuario = [
-            "id"=> md5($_POST["nombre"]),
-            "nombre" => $_POST["nombre"],
-            "apellido" => $_POST["apellido"],
-            "email" => $_POST["email"],
-            "password" => $contrasenia
-        ];
+///////////////////////////////////////////////////////////////////
 
-
-        //traigo los usuarios del json
-        $usuariosEnJSON = file_get_contents("usuarios.json");
-        //convierto el json en array
-        $usuarios = json_decode($usuariosEnJSON);
-        //agrego el nuevo usuario al array de la base de datos
-        $usuarios[] = $usuario;
-        //convierto el nuevo array completo a json
-        $nuevosUsuariosEnJSON = json_encode($usuarios);
-        //escribo el nuevo json en el archivo .json
-        file_put_contents("usuarios.json",$nuevosUsuariosEnJSON);
-        header('Location:loginB.php?email='.urlencode($mail));
-        exit;
+    if($errorNombre == "#" && $errorEmail == "#" && $errorContrasenia == "#" && $errorAvatar == "#" && $errorApellido== "#"){
+        //guardo la foto
+        move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/". $mail . "." . $avat );
+        //aca registro.
+        require_once 'clases/base_datos.php';
+        $bd = new BD;
+        $id_user = $bd->registrarUsuario($_POST["nombre"],$_POST["email"],$_POST["psw"],$_POST["apellido"]);
+        //si se registro bien...
+        if($id_user){
+            session_start();
+            //LOGUEO AL USUARIO Y REDIRIJO AL HOME
+            $_SESSION["id_usuario_logueado"] = $id_user;
+            header("Location:inicio.php");
+        }
 
     }
-
 }
+
+/////////////////////////////////////////////////////////////
+
 
  ?>
 <!DOCTYPE html>
@@ -188,7 +129,7 @@ if($_POST){
           <form class="col-8 offset-2" action="registro.php" method="POST" enctype="multipart/form-data">
               <div class="row">
                   <!--NOMBRE-->
-                  <span class="col-12 pl-0" style="color:red;font-size:14px;"><?=$errorNombre;?></span>
+                  <span class="col-12 pl-0" style="color:red;font-size:14px;"><?=$errorNombre != "#" ? $errorNombre : '';?></span>
                   <label class="col-12 col-md-2 p-0" for="nombre"><b>Nombre</b></label>
                   <input  class="col-12 col-md-4" type="text" placeholder="Ingresar nombre" name="nombre" value="<?=$nombre?>" required>
 
@@ -198,7 +139,7 @@ if($_POST){
 
 
                   <!--EMAIL-->
-                  <span style="color:red;font-size:14px;"><?=$errorEmail;?></span>
+                  <span style="color:red;font-size:14px;"><?=$errorEmail != "#" ? $errorEmail : '';?></span>
                   <label class="col-12 p-0" for="email"><b>Email</b></label>
                   <input class="col-12" value="<?=$mail?>"  type="email" placeholder="Ingresar Email" name="email" required>
 
@@ -215,12 +156,12 @@ if($_POST){
 
                   <!--PASSWORD -->
                   <div class="col-12 col-md-6 pl-0 pr-1">
-                    <span style="color:red;font-size:14px;"><?=$errorPassword;?></span>
+                    <span style="color:red;font-size:14px;"><?=$errorContrasenia != "#" ? $errorContrasenia : '';?></span>
                     <label class="col-12 p-0"for="pass"><b>Contraseña</b></label>
                     <input value="<?=$psw?>" class="col-12"type="password" placeholder=" Ingresar contraseña" name="psw" required>
                   </div>
                   <div class="col-12 col-md-6 p-0">
-                    <span style="color:red;font-size:14px;"><?=$errorPassword;?></span>
+                    <span style="color:red;font-size:14px;"><?=$errorContrasenia != "#" ? $errorContrasenia : '';?></span>
                     <label class="col-12 p-0"for="pass-repeat"><b>Confirme contraseña</b></label>
                     <input value="<?=$psw?>" class="col-12"type="password" placeholder="Repetir contraseña" name="pass-repeat" required>
                   </div>
