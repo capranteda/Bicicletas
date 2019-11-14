@@ -59,7 +59,7 @@ if($_POST){
         //guardo la foto
         move_uploaded_file($_FILES ["avatar"]["tmp_name"], "imgavatar/". $mail . "." . $avat );
         //aca registro.
-        require_once 'clases/base_datos.php';
+        include 'clases/base_datos.php';
         $bd = new Base;
         $id_user = $bd->registrarUsuario($_POST["nombre"],$_POST["email"],$_POST["psw"],$_POST["apellido"]);
         //si se registro bien...
@@ -69,7 +69,6 @@ if($_POST){
             $_SESSION["id_usuario_logueado"] = $id_user;
             header("Location:inicio.php");
         }
-
     }
 }
 
