@@ -7,7 +7,7 @@ class Base{
     public function __construct(){
         $dsn = "mysql:host=localhost;dbname=bici_db";
         $user = "root";
-        $pass = "";
+        $pass = "root";
         $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
         $this->conexion = new PDO($dsn,$user,$pass,$opciones);
